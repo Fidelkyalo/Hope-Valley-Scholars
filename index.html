@@ -163,23 +163,62 @@
             align-items: center;
             justify-content: center;
             text-align: center;
-            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('IMAGES/09.jpg.jpeg');
-            background-size: cover;
-            background-position: center;
+            position: relative;
+            overflow: hidden;
             color: white;
             padding: 0 5%;
+            background: #000;
+            /* Fallback color */
+        }
+
+        /* Hero overlay removed for maximum video visibility */
+
+        .hero-video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 100vw;
+            height: 56.25vw;
+            /* 16:9 Aspect Ratio */
+            min-height: 100vh;
+            min-width: 177.77vh;
+            /* 16:9 Aspect Ratio */
+            z-index: 0;
+            transform: translate(-50%, -50%);
+            object-fit: cover;
+            filter: brightness(0.8) contrast(1.1);
+            pointer-events: none;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            background: rgba(0, 0, 0, 0.4);
+            padding: 3.5rem;
+            border-radius: 40px;
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            max-width: 950px;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+            animation: fadeIn 1.2s ease-out;
         }
 
         .hero-content h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1.5rem;
+            font-size: 4.2rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            text-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
             animation: fadeInDown 1s ease;
         }
 
         .hero-content p {
-            font-size: 1.2rem;
+            font-size: 1.3rem;
+            font-weight: 400;
             max-width: 800px;
             margin: 0 auto 2.5rem;
+            line-height: 1.8;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
             animation: fadeInUp 1s ease 0.3s;
             animation-fill-mode: both;
         }
@@ -510,6 +549,12 @@
 
     <!-- Hero Section -->
     <section class="hero" id="home">
+        <div class="hero-video">
+            <iframe
+                src="https://www.youtube.com/embed/oZP4Ab_acY0?autoplay=1&mute=1&loop=1&playlist=oZP4Ab_acY0&controls=0&showinfo=0&rel=0&iv_load_policy=3&modestbranding=1&enablejsapi=1"
+                frameborder="0" allow="autoplay; encrypted-media" style="width: 100%; height: 100%; border:0;">
+            </iframe>
+        </div>
         <div class="hero-content">
             <h1>Hope Valley Scholars Inc</h1>
             <b>
@@ -656,8 +701,7 @@
                 <p style="margin-top: 20px;">Students graduate not only educated but prepared.</p>
             </div>
             <div class="side-img-container">
-                <i class="fas fa-rocket"
-                    style="font-size: 10rem; color: var(--accent-color); opacity: 0.1; display: block; text-align: center;"></i>
+                <img src="IMAGES/03.jpg.jpeg" alt="Marketplace Readiness" class="side-img">
             </div>
         </div>
     </section>
