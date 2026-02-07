@@ -76,10 +76,9 @@
             justify-content: space-between;
             align-items: center;
             padding: 1.5rem 5%;
-            background: rgba(10, 38, 71, 0.95);
-            backdrop-filter: blur(10px);
+            background: var(--primary-color);
             z-index: 1000;
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
             transition: var(--transition);
         }
 
@@ -146,6 +145,7 @@
             transform: translateY(-3px);
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
             background: #fff;
+            color: var(--primary-color) !important;
         }
 
         .donate-btn:hover i {
@@ -245,7 +245,7 @@
 
         .btn-primary:hover {
             background: #fff;
-            color: var(--bg-dark);
+            color: var(--secondary-color);
         }
 
         footer {
