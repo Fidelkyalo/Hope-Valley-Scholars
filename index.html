@@ -167,13 +167,23 @@
             overflow: hidden;
             color: white;
             padding: 0 5%;
-            background: #000;
-            /* Fallback color */
+            /* Removed background color to ensure video is visible behind content */
         }
 
         /* Hero overlay removed for maximum video visibility */
 
         .hero-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        .hero-video iframe {
             position: absolute;
             top: 50%;
             left: 50%;
@@ -183,11 +193,8 @@
             min-height: 100vh;
             min-width: 177.77vh;
             /* 16:9 Aspect Ratio */
-            z-index: 0;
             transform: translate(-50%, -50%);
-            object-fit: cover;
-            filter: brightness(0.8) contrast(1.1);
-            pointer-events: none;
+            border: 0;
         }
 
         .hero-content {
