@@ -163,83 +163,184 @@
         }
 
         /* Hero Section */
+        /* Hero Section Redesign */
         .hero {
             height: 100vh;
             display: flex;
             align-items: center;
-            justify-content: center;
-            text-align: center;
-            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('IMAGES/09.jpg.jpeg');
-            background-size: cover;
-            background-position: center;
-            color: white;
-            padding: 0 5%;
-            /* Removed background color to ensure video is visible behind content */
+            justify-content: space-between;
+            background-color: #ffffff;
+            color: var(--bg-dark);
+            position: relative;
+            overflow: hidden;
+            padding: 0 5% 0 10%;
         }
 
-        /* Hero overlay removed for maximum video visibility */
+        .hero-left {
+            flex: 1;
+            max-width: 600px;
+            z-index: 10;
+            opacity: 0;
+            transform: translateX(-30px);
+            animation: heroFadeInLeft 1.2s ease-out 0.8s forwards;
+        }
 
-        .hero-video {
+        @keyframes heroFadeInLeft {
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .hero-left h1 {
+            font-size: 3.5rem;
+            color: var(--bg-dark);
+            margin-bottom: 1rem;
+            line-height: 1.1;
+        }
+
+        .hero-left h2 {
+            font-size: 1.8rem !important;
+            color: var(--primary-color) !important;
+            font-weight: 300;
+            margin-bottom: 2rem;
+            line-height: 1.3;
+        }
+
+        .hero-btns {
+            display: flex;
+            gap: 20px;
+            margin-top: 2rem;
+            animation: fadeInUp 1s ease 1.2s both;
+        }
+
+        .hero-right {
+            flex: 1.5;
+            height: 100%;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 5;
+        }
+
+        .map-wrapper {
+            width: 80%;
+            height: 80%;
+            position: relative;
+            opacity: 0;
+            filter: blur(15px);
+            animation: mapClear 1.8s ease-out 1s forwards;
+        }
+
+        @keyframes mapClear {
+            to {
+                opacity: 1;
+                filter: blur(0);
+            }
+        }
+
+        .africa-map {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            clip-path: url(#africa-clip);
+        }
+
+        /* Decorative Brush Strokes */
+        .brush-stroke {
+            position: absolute;
+            z-index: 4;
+            opacity: 0.8;
+            pointer-events: none;
+        }
+
+        .brush-1 {
+            top: 25%;
+            left: 5%;
+            width: 120px;
+            height: 35px;
+            background: #8DBB5D;
+            transform: rotate(-15deg);
+            border-radius: 40% 10% 50% 20%;
+        }
+
+        .brush-2 {
+            bottom: 25%;
+            right: 15%;
+            width: 220px;
+            height: 50px;
+            background: var(--accent-color);
+            transform: rotate(5deg);
+            border-radius: 20% 50% 10% 40%;
+        }
+
+        .brush-3 {
+            bottom: 15%;
+            left: 25%;
+            width: 160px;
+            height: 40px;
+            background: #8DBB5D;
+            transform: rotate(-10deg);
+            border-radius: 50% 20% 40% 10%;
+        }
+
+        /* Stat Element */
+        .hero-stat {
+            position: absolute;
+            bottom: 20%;
+            right: 8%;
+            z-index: 15;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            opacity: 0;
+            animation: fadeInUp 1s ease 2s forwards;
+        }
+
+        .stat-circle {
+            width: 90px;
+            height: 90px;
+            background: var(--accent-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--bg-dark);
+            box-shadow: 0 10px 25px rgba(212, 175, 55, 0.4);
+            font-family: 'Playfair Display', serif;
+        }
+
+        .stat-text {
+            font-size: 0.9rem;
+            color: var(--bg-dark);
+            line-height: 1.2;
+            font-weight: 500;
+        }
+
+        /* Theme Color Reveal Animation */
+        .theme-reveal {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            z-index: -1;
+            background-color: var(--primary-color);
+            z-index: 100;
             pointer-events: none;
-            overflow: hidden;
+            animation: revealSlide 1.5s cubic-bezier(0.86, 0, 0.07, 1) forwards;
         }
 
-        .hero-video iframe {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 100vw;
-            height: 56.25vw;
-            /* 16:9 Aspect Ratio */
-            min-height: 100vh;
-            min-width: 177.77vh;
-            /* 16:9 Aspect Ratio */
-            transform: translate(-50%, -50%);
-            border: 0;
-        }
+        @keyframes revealSlide {
+            0% {
+                transform: translateX(0);
+            }
 
-        .hero-content {
-            position: relative;
-            z-index: 2;
-            background: rgba(0, 0, 0, 0.4);
-            padding: 3.5rem;
-            border-radius: 40px;
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            max-width: 950px;
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
-            animation: fadeIn 1.2s ease-out;
-        }
-
-        .hero-content {
-            max-width: 900px;
-            backdrop-filter: blur(2px);
-            padding: 2rem;
-            border-radius: 30px;
-        }
-
-        .hero-content h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1.5rem;
-            animation: fadeInDown 1s ease;
-        }
-
-        .hero-content p {
-            font-size: 1.3rem;
-            font-weight: 400;
-            max-width: 800px;
-            margin: 0 auto 2.5rem;
-            line-height: 1.8;
-            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
-            animation: fadeInUp 1s ease 0.3s;
-            animation-fill-mode: both;
+            100% {
+                transform: translateX(100%);
+            }
         }
 
         /* General Sections */
@@ -604,29 +705,46 @@
 
     <!-- Hero Section -->
     <section class="hero" id="home">
-        <div class="hero-video">
-            <iframe
-                src="https://www.youtube.com/embed/oZP4Ab_acY0?autoplay=1&mute=1&loop=1&playlist=oZP4Ab_acY0&controls=0&showinfo=0&rel=0&iv_load_policy=3&modestbranding=1&enablejsapi=1"
-                frameborder="0" allow="autoplay; encrypted-media" style="width: 100%; height: 100%; border:0;">
-            </iframe>
-        </div>
-        <div class="hero-content">
+        <div class="theme-reveal"></div>
+
+        <div class="hero-left">
             <h1>Hope Valley Scholars Inc</h1>
             <b>
-                <h2
-                    style="font-family: 'Inter', sans-serif; font-weight: 300; margin-bottom: 20px; font-size: 1.8rem; color: var(--accent-color);">
+                <h2 style="font-family: 'Inter', sans-serif; font-weight: 300;">
                     Planting seeds of hope, cultivating leaders for tomorrow</h2>
             </b>
-            <p>Hope Valley Scholars Inc exists to unlock educational opportunities for academically gifted and
-                financially disadvantaged students in Kenya guiding from high school through university and into
-                purposeful careers and entrepreneurship opportunities. We do not just fund education, we walk
-                with students through mentorship, leadership development, and community impact.</p>
-            <div class="hero-btns" style="display: flex; gap: 20px; justify-content: center; margin-top: 30px;">
-                <a href="involved.html" class="btn btn-primary">Sponsor a student <i class="fas fa-user-graduate"
-                        style="margin-left:5px;"></i></a>
-                <a href="involved.html" class="btn"
-                    style="background: rgba(255,255,255,0.1); border: 2px solid var(--accent-color); color: white;">Partner
-                    with Us</a>
+            <div class="hero-btns">
+                <a href="involved.html" class="btn btn-primary"
+                    style="background: black; color: white; border-radius: 5px; padding: 15px 35px; box-shadow: none;">Our
+                    foundation</a>
+                <a href="about.html" class="btn"
+                    style="background: transparent; color: var(--bg-dark); font-weight: 500; box-shadow: none;">Discover
+                    us <i class="fas fa-chevron-right" style="font-size: 0.8rem; margin-left: 5px;"></i></a>
+            </div>
+        </div>
+
+        <div class="hero-right">
+            <!-- Decorative elements -->
+            <div class="brush-stroke brush-1"></div>
+            <div class="brush-stroke brush-2"></div>
+            <div class="brush-stroke brush-3"></div>
+
+            <div class="map-wrapper">
+                <svg width="0" height="0" style="position: absolute;">
+                    <defs>
+                        <clipPath id="africa-clip" clipPathUnits="objectBoundingBox">
+                            <path
+                                d="M0.334,0.117 C0.322,0.12,0.31,0.125,0.298,0.134 C0.27,0.155,0.245,0.198,0.231,0.247 C0.222,0.28,0.226,0.306,0.245,0.328 C0.258,0.344,0.264,0.358,0.262,0.37 C0.261,0.378,0.249,0.389,0.235,0.395 C0.21,0.406,0.186,0.404,0.165,0.389 C0.151,0.379,0.142,0.379,0.125,0.387 C0.103,0.398,0.088,0.418,0.081,0.444 C0.076,0.466,0.077,0.5,0.086,0.528 C0.093,0.549,0.105,0.565,0.121,0.574 C0.153,0.592,0.177,0.578,0.205,0.526 C0.218,0.501,0.235,0.487,0.258,0.481 C0.292,0.472,0.32,0.485,0.341,0.518 C0.356,0.541,0.37,0.551,0.394,0.552 C0.414,0.553,0.428,0.56,0.443,0.575 C0.475,0.605,0.493,0.641,0.505,0.702 C0.511,0.732,0.519,0.757,0.529,0.776 C0.547,0.812,0.546,0.835,0.526,0.865 C0.512,0.886,0.504,0.906,0.506,0.923 C0.51,0.957,0.537,0.98,0.573,0.978 C0.6,0.977,0.612,0.973,0.61,0.963 C0.609,0.955,0.6,0.941,0.59,0.93 C0.575,0.912,0.573,0.896,0.583,0.866 C0.591,0.842,0.6,0.835,0.627,0.826 C0.669,0.812,0.701,0.789,0.725,0.758 C0.74,0.738,0.738,0.734,0.71,0.716 C0.693,0.706,0.686,0.694,0.681,0.672 C0.675,0.645,0.682,0.63,0.717,0.603 C0.74,0.585,0.75,0.57,0.755,0.55 C0.764,0.515,0.781,0.499,0.816,0.492 C0.842,0.486,0.864,0.47,0.878,0.445 C0.886,0.43,0.89,0.415,0.887,0.4 C0.885,0.384,0.895,0.36,0.91,0.344 C0.925,0.329,0.933,0.309,0.931,0.292 C0.927,0.266,0.914,0.244,0.894,0.228 C0.872,0.21,0.854,0.206,0.82,0.213 C0.793,0.218,0.782,0.215,0.767,0.199 C0.745,0.176,0.714,0.147,0.679,0.12 C0.655,0.101,0.617,0.082,0.592,0.076 C0.558,0.068,0.505,0.065,0.457,0.069 C0.414,0.072,0.38,0.085,0.353,0.107 L0.334,0.117 Z">
+                            </path>
+                        </clipPath>
+                    </defs>
+                </svg>
+                <img src="IMAGES/09.jpg.jpeg" alt="Hope Valley Scholar" class="africa-map">
+            </div>
+
+            <div class="hero-stat">
+                <div class="stat-circle">288</div>
+                <div class="stat-text">Lorem ipsum dolor<br>sit amet enim</div>
             </div>
         </div>
     </section>
