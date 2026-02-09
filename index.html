@@ -162,165 +162,145 @@
             color: var(--text-light);
         }
 
-        /* Hero Section */
-        /* Hero Section Refined Redesign */
+        /* Hero Section Refined Redesign - Geometric Layout */
         .hero {
             height: 100vh;
             display: flex;
             align-items: center;
-            justify-content: space-between;
+            justify-content: center;
             background-color: #ffffff;
-            /* Clean white background */
             color: var(--bg-dark);
             position: relative;
             overflow: hidden;
-            padding: 0 5% 0 10%;
+            padding: 0 5%;
         }
 
-        .hero-left {
-            flex: 1;
-            max-width: 600px;
-            z-index: 10;
+        .hero-geometric-container {
+            position: relative;
+            width: 100%;
+            max-width: 1200px;
+            height: 80vh;
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            grid-template-rows: repeat(10, 1fr);
+            gap: 0;
+        }
+
+        /* The main olive block */
+        .hero-main-block {
+            grid-column: 1 / 8;
+            grid-row: 2 / 9;
+            background-color: var(--primary-color);
+            z-index: 5;
+            padding: 4rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            color: white;
+            box-shadow: 20px 20px 60px rgba(0, 0, 0, 0.1);
+            position: relative;
             opacity: 0;
-            transform: translateX(-30px);
-            animation: heroFadeInLeft 1s ease-out 0.8s forwards;
+            transform: translateY(30px);
+            animation: blockFadeIn 1s ease-out forwards;
         }
 
-        @keyframes heroFadeInLeft {
+        /* The portrait block */
+        .hero-portrait-block {
+            grid-column: 7 / 13;
+            grid-row: 1 / 11;
+            z-index: 10;
+            position: relative;
+            opacity: 0;
+            transform: translateX(30px);
+            animation: blockFadeIn 1s ease-out 0.3s forwards;
+            overflow: hidden;
+        }
+
+        .hero-portrait-block img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 4px;
+        }
+
+        /* The gold accent block */
+        .hero-accent-block {
+            grid-column: 11 / 13;
+            grid-row: 8 / 10;
+            background-color: var(--accent-color);
+            z-index: 15;
+            opacity: 0;
+            transform: scale(0.8);
+            animation: blockFadeIn 0.8s ease-out 0.6s forwards;
+        }
+
+        @keyframes blockFadeIn {
             to {
                 opacity: 1;
-                transform: translateX(0);
+                transform: translate(0) scale(1);
             }
         }
 
-        .hero-left h1 {
-            font-size: 3.5rem;
-            color: var(--bg-dark);
-            margin-bottom: 1rem;
-            line-height: 1.1;
+        .hero-content {
+            position: relative;
+            z-index: 20;
+        }
+
+        .hero-content h1 {
+            font-size: 4rem;
+            color: white;
+            margin-bottom: 1.5rem;
+            line-height: 1;
             font-family: 'Playfair Display', serif;
         }
 
-        .hero-left h2 {
-            font-size: 1.8rem !important;
-            color: var(--primary-color) !important;
+        .hero-content h2 {
+            font-size: 1.5rem !important;
+            color: rgba(255, 255, 255, 0.9) !important;
             font-weight: 300;
-            margin-bottom: 2rem;
+            margin-bottom: 2.5rem;
             line-height: 1.4;
             font-family: 'Inter', sans-serif;
-            text-transform: none;
+            text-transform: none !important;
         }
 
         .hero-btns {
             display: flex;
             gap: 20px;
-            margin-top: 2rem;
         }
 
-        .hero-right {
-            flex: 1.5;
-            height: 100%;
-            position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 5;
-        }
-
-        .map-wrapper {
-            width: 85%;
-            height: 85%;
-            position: relative;
-            opacity: 0;
-            filter: blur(20px);
-            animation: mapClear 2s ease-out 1s forwards;
-        }
-
-        @keyframes mapClear {
-            to {
-                opacity: 1;
-                filter: blur(0);
+        /* Responsive Adjustments */
+        @media (max-width: 992px) {
+            .hero-geometric-container {
+                display: flex;
+                flex-direction: column;
+                height: auto;
+                padding-top: 80px;
             }
-        }
 
-        .africa-map {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-            /* Changed from cover to show the whole map outline */
-        }
+            .hero-main-block {
+                order: 2;
+                grid-column: auto;
+                grid-row: auto;
+                padding: 2.5rem;
+                margin-top: -50px;
+                z-index: 15;
+            }
 
-        /* Decorative Brush Strokes */
-        .brush-stroke {
-            position: absolute;
-            z-index: 4;
-            opacity: 0.8;
-            pointer-events: none;
-        }
+            .hero-portrait-block {
+                order: 1;
+                grid-column: auto;
+                grid-row: auto;
+                height: 400px;
+            }
 
-        .brush-1 {
-            top: 20%;
-            left: 10%;
-            width: 130px;
-            height: 40px;
-            background: #8DBB5D;
-            transform: rotate(-15deg);
-            border-radius: 40% 10% 50% 20%;
-        }
+            .hero-accent-block {
+                display: none;
+            }
 
-        .brush-2 {
-            bottom: 20%;
-            right: 15%;
-            width: 240px;
-            height: 55px;
-            background: var(--accent-color);
-            transform: rotate(5deg);
-            border-radius: 20% 50% 10% 40%;
-        }
-
-        .brush-3 {
-            bottom: 10%;
-            left: 30%;
-            width: 170px;
-            height: 45px;
-            background: #8DBB5D;
-            transform: rotate(-10deg);
-            border-radius: 50% 20% 40% 10%;
-        }
-
-        /* Stat Element */
-        .hero-stat {
-            position: absolute;
-            bottom: 20%;
-            right: 10%;
-            z-index: 15;
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            opacity: 0;
-            animation: fadeInUp 1s ease 2.2s forwards;
-        }
-
-        .stat-circle {
-            width: 95px;
-            height: 95px;
-            background: var(--accent-color);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2.2rem;
-            font-weight: 700;
-            color: var(--bg-dark);
-            box-shadow: 0 10px 25px rgba(212, 175, 55, 0.4);
-            font-family: 'Playfair Display', serif;
-        }
-
-        .stat-text {
-            font-size: 0.95rem;
-            color: var(--bg-dark);
-            line-height: 1.2;
-            font-weight: 500;
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
         }
 
         /* Theme Color Wipe Animation */
@@ -702,39 +682,26 @@
     </nav>
 
     <!-- Hero Section -->
-    <!-- Hero Section -->
     <section class="hero" id="home">
-        <div class="theme-reveal"></div>
-
-        <div class="hero-left">
-            <h1>Hope Valley Scholars Inc</h1>
-            <b>
-                <h2>Planting seeds of hope, cultivating leaders for tomorrow</h2>
-            </b>
-            <div class="hero-btns">
-                <a href="involved.html" class="btn btn-primary"
-                    style="background: black; color: white; border-radius: 5px; padding: 15px 35px; box-shadow: none;">Our
-                    foundation</a>
-                <a href="about.html" class="btn"
-                    style="background: transparent; color: var(--bg-dark); font-weight: 500; box-shadow: none;">Discover
-                    us <i class="fas fa-chevron-right" style="font-size: 0.8rem; margin-left: 5px;"></i></a>
+        <div class="hero-geometric-container">
+            <div class="hero-main-block">
+                <div class="hero-content">
+                    <h1>Hope Valley Scholars Inc</h1>
+                    <h2>Planting seeds of hope, cultivating leaders for tomorrow</h2>
+                    <div class="hero-btns">
+                        <a href="involved.html" class="btn btn-primary"
+                            style="background: black; color: white; border-radius: 5px; padding: 15px 35px; box-shadow: none;">Our
+                            foundation</a>
+                        <a href="about.html" class="btn"
+                            style="background: transparent; color: white; font-weight: 500; box-shadow: none;">Discover
+                            us <i class="fas fa-chevron-right" style="font-size: 0.8rem; margin-left: 5px;"></i></a>
+                    </div>
+                </div>
             </div>
-        </div>
-
-        <div class="hero-right">
-            <!-- Decorative elements -->
-            <div class="brush-stroke brush-1"></div>
-            <div class="brush-stroke brush-2"></div>
-            <div class="brush-stroke brush-3"></div>
-
-            <div class="map-wrapper">
-                <img src="IMAGES/African map.jpg" alt="Africa Map" class="africa-map">
+            <div class="hero-portrait-block">
+                <img src="IMAGES/Image by Ben White.jpg.jpeg" alt="Hope Valley Scholar">
             </div>
-
-            <div class="hero-stat">
-                <div class="stat-circle">288</div>
-                <div class="stat-text">Lorem ipsum dolor<br>sit amet enim</div>
-            </div>
+            <div class="hero-accent-block"></div>
         </div>
     </section>
 
