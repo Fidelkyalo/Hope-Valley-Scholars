@@ -299,6 +299,23 @@
             padding-left: 5px;
         }
 
+        /* Responsive Footer Logo Reordering */
+        @media (min-width: 768px) {
+            .footer-col:first-child {
+                display: flex;
+                flex-direction: column;
+            }
+
+            .footer-col:first-child a[href="index.html"] {
+                order: 10;
+                margin-top: 15px;
+            }
+
+            .footer-col:first-child a[href="index.html"] img {
+                margin-bottom: 0 !important;
+            }
+        }
+
         .footer-col p {
             opacity: 0.8;
             font-size: 0.9rem;
