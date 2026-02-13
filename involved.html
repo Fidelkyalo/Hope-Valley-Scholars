@@ -88,12 +88,22 @@
         }
 
         .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
             font-size: 1.6rem;
             font-weight: 800;
             color: var(--text-light);
             text-decoration: none;
             letter-spacing: -0.5px;
             font-family: 'Playfair Display', serif;
+        }
+
+        .logo img {
+            height: 50px;
+            width: auto;
+            object-fit: contain;
+            cursor: pointer;
         }
 
         .logo span {
@@ -389,7 +399,10 @@
 
 <body>
     <nav class="navbar" id="navbar">
-        <a href="index.html" class="logo">HOPE VALLEY <span>SCHOLARS</span></a>
+        <a href="index.html" class="logo">
+            <img src="IMAGES/HVS Logo.png" alt="Hope Valley Scholars Logo">
+            HOPE VALLEY <span>SCHOLARS</span>
+        </a>
         <div class="nav-links" id="nav-links">
             <a href="index.html">Home</a>
             <a href="about.html">About</a>
@@ -413,8 +426,8 @@
     <section>
         <div class="involved-grid">
             <div class="involved-card">
-                <img src="IMAGES/936ad1_0f65f670aec2427294ce82674d43c693~mv2.jpg.jpeg" alt="Donation"
-                    class="involved-img" style="height: 250px; object-fit: cover;">
+                <img src="IMAGES/Image 1.png" alt="Donation" class="involved-img"
+                    style="height: 250px; object-fit: cover;">
                 <i class="fas fa-hand-holding-heart"></i>
                 <h3>Sponsor a Student</h3>
                 <p>Every gifted student deserves the chance to learn, grow, and lead regardless of financial
@@ -438,8 +451,8 @@
                 <a href="contact.html?interest=Partner" class="btn btn-primary">Become a Partner</a>
             </div>
             <div class="involved-card">
-                <img src="IMAGES/39fd01_8746dce38d4342f3915a9718aaf21079~mv2.jpg.jpeg" alt="Volunteer"
-                    class="involved-img" style="height: 250px; object-fit: cover;">
+                <img src="IMAGES/Image 3.png" alt="Volunteer" class="involved-img"
+                    style="height: 250px; object-fit: cover;">
                 <i class="fas fa-users-gear"></i>
                 <h3>Volunteer or Mentor</h3>
                 <p>Professionals and leaders can serve as mentors, advisors, or ambassadors to support scholars
@@ -453,6 +466,8 @@
     <footer>
         <div class="footer-grid">
             <div class="footer-col">
+                <img src="IMAGES/HVS Logo.png" alt="Hope Valley Scholars Logo"
+                    style="height: 60px; margin-bottom: 20px;">
                 <h4>Hope Valley Scholars</h4>
                 <p>Supporting gifted students in Kenya through education, mentorship, and leadership development.</p>
                 <span class="connect-text" style="margin-top:20px; font-size: 0.8rem;">Connect with the community</span>

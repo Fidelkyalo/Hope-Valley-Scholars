@@ -90,12 +90,22 @@
         }
 
         .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
             font-size: 1.6rem;
             font-weight: 800;
             color: var(--text-light);
             text-decoration: none;
             letter-spacing: -0.5px;
             font-family: 'Playfair Display', serif;
+        }
+
+        .logo img {
+            height: 50px;
+            width: auto;
+            object-fit: contain;
+            cursor: pointer;
         }
 
         .logo span {
@@ -162,134 +172,62 @@
             color: var(--text-light);
         }
 
-        /* Hero Section Refined Redesign - Geometric Layout */
+        /* Hero Section Redesign - Banner Layout */
         .hero {
-            height: 100vh;
+            height: 90vh;
             display: flex;
             align-items: center;
             justify-content: center;
-            background-color: #ffffff;
-            color: var(--bg-dark);
+            background-color: var(--primary-color);
+            color: white;
             position: relative;
             overflow: hidden;
             padding: 0 5%;
+            text-align: center;
+            border-bottom: 5px solid var(--accent-color);
         }
 
-        .hero-geometric-container {
-            position: relative;
-            width: 100%;
-            max-width: 1200px;
-            height: 80vh;
-            display: grid;
-            grid-template-columns: repeat(12, 1fr);
-            grid-template-rows: repeat(10, 1fr);
-            gap: 0;
-        }
-
-        /* The main olive block */
-        .hero-main-block {
-            grid-column: 1 / 8;
-            grid-row: 2 / 9;
-            background-color: var(--primary-color);
-            z-index: 5;
-            padding: 4rem;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            color: white;
-            box-shadow: 20px 20px 60px rgba(0, 0, 0, 0.1);
-            position: relative;
+        .hero-banner-content {
+            max-width: 1000px;
+            z-index: 20;
             opacity: 0;
             transform: translateY(30px);
             animation: blockFadeIn 1s ease-out forwards;
         }
 
-        /* The portrait block */
-        .hero-portrait-block {
-            grid-column: 7 / 13;
-            grid-row: 1 / 11;
-            z-index: 10;
-            position: relative;
-            opacity: 0;
-            transform: translateX(30px);
-            animation: blockFadeIn 1s ease-out 0.3s forwards;
-            overflow: hidden;
-        }
-
-        .hero-portrait-block img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 4px;
-        }
-
-        @keyframes blockFadeIn {
-            to {
-                opacity: 1;
-                transform: translate(0) scale(1);
-            }
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 20;
-        }
-
-        .hero-content h1 {
-            font-size: 4rem;
+        .hero-banner-content h1 {
+            font-size: 5rem;
             color: white;
-            margin-bottom: 1.5rem;
-            line-height: 1;
+            margin-bottom: 1rem;
+            line-height: 1.1;
             font-family: 'Playfair Display', serif;
         }
 
-        .hero-content h2 {
-            font-size: 1.5rem !important;
-            color: rgba(255, 255, 255, 0.9) !important;
-            font-weight: 300;
-            margin-bottom: 2.5rem;
+        .hero-banner-content h2 {
+            font-size: 1.8rem !important;
+            color: var(--accent-color) !important;
+            font-weight: 400;
+            margin-bottom: 3rem;
             line-height: 1.4;
             font-family: 'Inter', sans-serif;
+            font-style: italic;
             text-transform: none !important;
         }
 
         .hero-btns {
             display: flex;
             gap: 20px;
+            justify-content: center;
         }
 
         /* Responsive Adjustments */
         @media (max-width: 992px) {
-            .hero-geometric-container {
-                display: flex;
-                flex-direction: column;
-                height: auto;
-                padding-top: 80px;
+            .hero-banner-content h1 {
+                font-size: 3.5rem;
             }
 
-            .hero-main-block {
-                order: 1;
-                grid-column: auto;
-                grid-row: auto;
-                padding: 2.5rem;
-                z-index: 15;
-            }
-
-            .hero-portrait-block {
-                order: 2;
-                grid-column: auto;
-                grid-row: auto;
-                height: 400px;
-                margin-top: -30px;
-                /* Slight overlap with the text block above */
-            }
-
-            .hero-accent-block {
-                display: none;
-            }
-
-            .hero-content h1 {
-                font-size: 2.5rem;
+            .hero-banner-content h2 {
+                font-size: 1.4rem !important;
             }
         }
 
@@ -568,18 +506,17 @@
 
             .hero {
                 height: auto;
-                min-height: unset;
-                padding: 120px 5% 60px;
-                background-attachment: scroll;
+                min-height: 80vh;
+                padding: 150px 5% 100px;
             }
 
-            .hero-left h1 {
-                font-size: 2.2rem;
+            .hero-banner-content h1 {
+                font-size: 2.5rem;
                 line-height: 1.2;
             }
 
-            .hero-left h2 {
-                font-size: 1.3rem !important;
+            .hero-banner-content h2 {
+                font-size: 1.2rem !important;
             }
 
             .hero-btns {
@@ -655,7 +592,10 @@
 
     <!-- Navbar -->
     <nav class="navbar" id="navbar">
-        <a href="index.html" class="logo">HOPE VALLEY <span>SCHOLARS</span></a>
+        <a href="index.html" class="logo">
+            <img src="IMAGES/HVS Logo.png" alt="Hope Valley Scholars Logo">
+            HOPE VALLEY <span>SCHOLARS</span>
+        </a>
         <div class="nav-links" id="nav-links">
             <a href="index.html">Home</a>
             <a href="about.html">About</a>
@@ -673,23 +613,16 @@
 
     <!-- Hero Section -->
     <section class="hero" id="home">
-        <div class="hero-geometric-container">
-            <div class="hero-main-block">
-                <div class="hero-content">
-                    <h1>Hope Valley Scholars Inc</h1>
-                    <h2>Planting seeds of hope, cultivating leaders for tomorrow</h2>
-                    <div class="hero-btns">
-                        <a href="involved.html" class="btn btn-primary"
-                            style="background: black; color: white; border-radius: 5px; padding: 15px 35px; box-shadow: none;">Our
-                            foundation</a>
-                        <a href="about.html" class="btn"
-                            style="background: transparent; color: white; font-weight: 500; box-shadow: none;">Discover
-                            us <i class="fas fa-chevron-right" style="font-size: 0.8rem; margin-left: 5px;"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="hero-portrait-block">
-                <img src="IMAGES/Image by Ben White.jpg.jpeg" alt="Hope Valley Scholar">
+        <div class="hero-banner-content">
+            <h1>Hope Valley Scholars Inc</h1>
+            <h2>"Planting seeds of hope, cultivating leaders for tomorrow"</h2>
+            <div class="hero-btns">
+                <a href="involved.html" class="btn btn-primary"
+                    style="background: black; color: white; border-radius: 5px; padding: 15px 35px; box-shadow: none;">Our
+                    foundation</a>
+                <a href="about.html" class="btn"
+                    style="background: transparent; color: white; font-weight: 500; box-shadow: none;">Discover
+                    us <i class="fas fa-chevron-right" style="font-size: 0.8rem; margin-left: 5px;"></i></a>
             </div>
         </div>
     </section>
@@ -709,8 +642,8 @@
                     and build resilient communities.</p>
             </div>
             <div class="vision-image">
-                <img src="IMAGES/39fd01_8746dce38d4342f3915a9718aaf21079~mv2.jpg.jpeg" alt="Community Outreach"
-                    class="side-img" style="height: 500px; object-fit: cover;">
+                <img src="IMAGES/Image 2.png" alt="Community Outreach" class="side-img"
+                    style="height: 500px; object-fit: cover;">
             </div>
         </div>
     </section>
@@ -770,7 +703,7 @@
                     and growth.</p>
             </div>
             <div class="side-img-container">
-                <img src="IMAGES/Image by Ben White.jpg.jpeg" alt="Student studying" class="side-img">
+                <img src="IMAGES/Image 1.png" alt="Student studying" class="side-img">
             </div>
         </div>
     </section>
@@ -778,7 +711,7 @@
     <section id="mentorship-leadership">
         <div class="content-with-img">
             <div class="side-img-container">
-                <img src="IMAGES/02.jpg.jpeg" alt="Mentorship" class="side-img">
+                <img src="IMAGES/Image 1.png" alt="Mentorship" class="side-img">
             </div>
             <div class="text-content">
                 <h2>Mentorship & Leadership Development</h2>
@@ -819,7 +752,7 @@
                 <p style="margin-top: 20px;">Students graduate not only educated but prepared.</p>
             </div>
             <div class="side-img-container">
-                <img src="IMAGES/03.jpg.jpeg" alt="Marketplace Readiness" class="side-img">
+                <img src="IMAGES/Image 4.png" alt="Marketplace Readiness" class="side-img">
             </div>
         </div>
     </section>
@@ -827,7 +760,7 @@
     <section id="community-impact">
         <div class="content-with-img">
             <div class="side-img-container">
-                <img src="IMAGES/01.jpg.jpeg" alt="Community Impact" class="side-img">
+                <img src="IMAGES/03.jpg.jpeg" alt="Community Impact" class="side-img">
             </div>
             <div class="text-content">
                 <h2>Give-Back & Community Impact</h2>
@@ -876,7 +809,7 @@
     <section id="education">
         <div class="content-with-img">
             <div class="side-img-container">
-                <img src="IMAGES/Image by Ben White.jpg.jpeg" alt="Student studying" class="side-img">
+                <img src="IMAGES/Image 5.png" alt="Student studying" class="side-img">
             </div>
             <div class="text-content">
                 <h2>Excellence in Education</h2>
@@ -892,6 +825,8 @@
     <footer>
         <div class="footer-grid">
             <div class="footer-col">
+                <img src="IMAGES/HVS Logo.png" alt="Hope Valley Scholars Logo"
+                    style="height: 60px; margin-bottom: 20px;">
                 <h4>Hope Valley Scholars</h4>
                 <p>Supporting gifted students in Kenya through education, mentorship, and leadership development.</p>
                 <span class="connect-text" style="margin-top:20px; font-size: 0.8rem;">Connect with the community</span>
