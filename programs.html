@@ -88,12 +88,22 @@
         }
 
         .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
             font-size: 1.6rem;
             font-weight: 800;
             color: var(--text-light);
             text-decoration: none;
             letter-spacing: -0.5px;
             font-family: 'Playfair Display', serif;
+        }
+
+        .logo img {
+            height: 50px;
+            width: auto;
+            object-fit: contain;
+            cursor: pointer;
         }
 
         .logo span {
@@ -445,7 +455,10 @@
 
 <body>
     <nav class="navbar" id="navbar">
-        <a href="index.html" class="logo">HOPE VALLEY <span>SCHOLARS</span></a>
+        <a href="index.html" class="logo">
+            <img src="IMAGES/HVS Logo.png" alt="Hope Valley Scholars Logo">
+            HOPE VALLEY <span>SCHOLARS</span>
+        </a>
         <div class="nav-links" id="nav-links">
             <a href="index.html">Home</a>
             <a href="about.html">About</a>
@@ -475,7 +488,7 @@
     <section>
         <div class="programs-grid">
             <div class="program-card">
-                <img src="IMAGES/05.jpg.jpeg" alt="Education Pathway" class="program-img"
+                <img src="IMAGES/Image 1.png" alt="Education Pathway" class="program-img"
                     style="height: 250px; object-fit: cover;">
                 <h3>Education Pathway</h3>
                 <p>We support students from high school through university by providing tuition assistance, school
@@ -488,7 +501,7 @@
                 </ul>
             </div>
             <div class="program-card">
-                <img src="IMAGES/02.jpg.jpeg" alt="Mentorship & Leadership" class="program-img"
+                <img src="IMAGES/Image 1.png" alt="Mentorship & Leadership" class="program-img"
                     style="height: 250px; object-fit: cover;">
                 <h3>Mentorship & Leadership Development</h3>
                 <p>Each scholar is paired with mentorship that fosters character, responsibility, integrity, and
@@ -500,7 +513,7 @@
                 </ul>
             </div>
             <div class="program-card">
-                <img src="IMAGES/09.jpg.jpeg" alt="Marketplace Readiness" class="program-img"
+                <img src="IMAGES/Image 4.png" alt="Marketplace Readiness" class="program-img"
                     style="height: 250px; object-fit: cover;">
                 <h3>Marketplace Readiness</h3>
                 <p>We prepare students to transition from education into meaningful professional impact through
@@ -513,7 +526,7 @@
                 </ul>
             </div>
             <div class="program-card">
-                <img src="IMAGES/04.jpg.jpeg" alt="Give-Back & Community" class="program-img"
+                <img src="IMAGES/03.jpg.jpeg" alt="Give-Back & Community" class="program-img"
                     style="height: 250px; object-fit: cover;">
                 <h3>Give-Back & Community</h3>
                 <p>Scholars apply their education to real community needs through service and reinvestment.</p>
@@ -530,6 +543,8 @@
     <footer>
         <div class="footer-grid">
             <div class="footer-col">
+                <img src="IMAGES/HVS Logo.png" alt="Hope Valley Scholars Logo"
+                    style="height: 60px; margin-bottom: 20px;">
                 <h4>Hope Valley Scholars</h4>
                 <p>Supporting gifted students in Kenya through education, mentorship, and leadership development.</p>
                 <span class="connect-text" style="margin-top:20px; font-size: 0.8rem;">Connect with the community</span>

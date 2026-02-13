@@ -88,12 +88,22 @@
         }
 
         .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
             font-size: 1.6rem;
             font-weight: 800;
             color: var(--text-light);
             text-decoration: none;
             letter-spacing: -0.5px;
             font-family: 'Playfair Display', serif;
+        }
+
+        .logo img {
+            height: 50px;
+            width: auto;
+            object-fit: contain;
+            cursor: pointer;
         }
 
         .logo span {
@@ -393,7 +403,10 @@
 
 <body>
     <nav class="navbar" id="navbar">
-        <a href="index.html" class="logo">HOPE VALLEY <span>SCHOLARS</span></a>
+        <a href="index.html" class="logo">
+            <img src="IMAGES/HVS Logo.png" alt="Hope Valley Scholars Logo">
+            HOPE VALLEY <span>SCHOLARS</span>
+        </a>
         <div class="nav-links" id="nav-links">
             <a href="index.html">Home</a>
             <a href="about.html">About Us</a>
@@ -432,7 +445,7 @@
                 <span class="connect-text">Connect with the community</span>
             </div>
             <div class="content-img">
-                <img src="IMAGES/06.jpg.jpeg" alt="Mentorship Session" style="margin-bottom: 20px;">
+                <img src="IMAGES/Image 1.png" alt="Mentorship Session" style="margin-bottom: 20px;">
                 <img src="IMAGES/Graduation Caps Scene.jpg.jpeg" alt="Leadership">
             </div>
         </div>
@@ -441,6 +454,8 @@
     <footer>
         <div class="footer-grid">
             <div class="footer-col">
+                <img src="IMAGES/HVS Logo.png" alt="Hope Valley Scholars Logo"
+                    style="height: 60px; margin-bottom: 20px;">
                 <h4>Hope Valley Scholars</h4>
                 <p>Supporting gifted students in Kenya through education, mentorship, and leadership development.</p>
                 <span class="connect-text" style="margin-top:20px; font-size: 0.8rem;">Connect with the community</span>
