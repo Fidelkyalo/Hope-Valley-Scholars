@@ -19,7 +19,12 @@
             --accent-color: #d4af37;
             --text-light: #f9f8f4;
             --bg-dark: #1a1812;
-            --transition: all 0.3s ease;
+            --transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        a,
+        button {
+            transition: var(--transition);
         }
 
         * {
@@ -673,12 +678,14 @@
     </section>
 
     <!-- Decorative Separator -->
-    <div style="text-align: center; padding: 40px 25% 0; background-color: var(--secondary-color);">
-        <div style="display: flex; align-items: center; justify-content: center; gap: 20px;">
-            <div style="flex: 1; height: 3px; background: linear-gradient(to right, transparent, var(--accent-color));">
+    <div style="text-align: center; padding: 60px 25% 0; background-color: var(--secondary-color);">
+        <div style="display: flex; align-items: center; justify-content: center; gap: 30px;">
+            <div
+                style="flex: 1; height: 6px; background: linear-gradient(to right, transparent, var(--accent-color)); opacity: 0.9;">
             </div>
-            <i class="fas fa-gem" style="color: var(--accent-color); font-size: 1.2rem; opacity: 0.8;"></i>
-            <div style="flex: 1; height: 3px; background: linear-gradient(to left, transparent, var(--accent-color));">
+            <i class="fas fa-gem" style="color: var(--accent-color); font-size: 2.5rem; opacity: 1;"></i>
+            <div
+                style="flex: 1; height: 6px; background: linear-gradient(to left, transparent, var(--accent-color)); opacity: 0.9;">
             </div>
         </div>
     </div>
