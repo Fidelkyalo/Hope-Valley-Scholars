@@ -601,6 +601,25 @@
             }
         }
 
+        /* About section styles */
+        .about-text h2 {
+            color: var(--accent-color);
+            margin-bottom: 20px;
+        }
+
+        .vision-box {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 50px;
+            border-radius: 20px;
+            border-left: 5px solid var(--accent-color);
+            margin-top: 40px;
+        }
+
+        .vision-box h3 {
+            margin-bottom: 20px;
+            color: var(--accent-color);
+        }
+
         @keyframes fadeInUp {
             from {
                 opacity: 0;
@@ -647,34 +666,92 @@
                 <a href="involved.html" class="btn btn-primary"
                     style="background: black; color: white; border-radius: 5px; padding: 15px 35px; box-shadow: none;">Our
                     foundation</a>
-                <a href="about.html" class="btn"
+                <a href="#about" class="btn"
                     style="background: transparent; color: white; font-weight: 500; box-shadow: none;">Discover
                     us <i class="fas fa-chevron-right" style="font-size: 0.8rem; margin-left: 5px;"></i></a>
             </div>
         </div>
     </section>
 
-    <!-- Why We Exist Section -->
-    <section id="why-we-exist">
-        <div class="section-header">
-            <h2>Why We Exist</h2>
-            <div class="line"></div>
-        </div>
-        <div class="vision-container content-with-img">
-            <div class="vision-text">
-                <p>Many gifted students in Kenya are unable to continue their education due to financial hardship.
-                    Hope Valley Scholars Inc was founded to bridge this gap ensuring that talent is not silenced by
-                    circumstance. We walk alongside students from high school through university, equipping them
-                    with education, mentorship, and leadership training that prepares them to strengthen families
-                    and build resilient communities.</p>
-            </div>
-            <div class="vision-image">
-                <img src="IMAGES/Image 2.png" alt="Community Outreach" class="side-img"
-                    style="height: 500px; object-fit: cover;">
+    <!-- About Section (merged below landing page) -->
+    <section id="about">
+        <div>
+            <div class="about-text">
+                <h2>Our Story</h2>
+                <p>The vision began with a simple but profound experience: seeing brilliant young students unable to
+                    continue school because of financial limitations. Their dreams were bright, their effort unmatched,
+                    but opportunity was out of reach. Hope Valley Scholars exists to rewrite that narrative — one
+                    student, one family, one community at a time.</p>
+                <div class="vision-box">
+                    <h3>About Us</h3>
+                    <p>Hope Valley Scholars Inc is a nonprofit organization dedicated to supporting academically gifted,
+                        financially disadvantaged students in Kenya from high school through university. We walk
+                        alongside our scholars with education support, mentorship with purpose, and marketplace
+                        preparation — helping them grow into confident leaders who give back, build strong families,
+                        strengthen institutions, and transform communities.</p>
+                    <br>
+                    <h3>Mission</h3>
+                    <p>Hope Valley Scholars Inc supports academically gifted and financially disadvantaged students in
+                        Kenya from high school through university by providing access to education, mentorship,
+                        leadership development, and career readiness. Our mission is not only to expand access to
+                        education, but to cultivate values-driven leaders who give back, drive positive change, and
+                        build resilient communities.</p>
+                    <br>
+                    <h3>Vision</h3>
+                    <p>We envision a future where talented students rise from education to leadership, transforming
+                        families, strengthening institutions, and shaping ethical marketplaces across generations.
+                        Through long-term mentorship, leadership formation, and professional readiness, Hope Valley
+                        Scholars Inc contributes to developing a generation of leaders committed to service, integrity,
+                        and community transformation.</p>
+                </div>
             </div>
         </div>
     </section>
 
+    <!-- Core Values -->
+    <section id="core-values" style="background-color: var(--secondary-color);">
+        <div class="section-header" style="text-align: center; margin-bottom: 50px;">
+            <h2 style="color: var(--accent-color);">Core Values</h2>
+            <div class="line"></div>
+        </div>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px;">
+            <div class="involved-card"
+                style="padding: 30px; text-align: center; background: rgba(255,255,255,0.05); border-radius: 15px; border-top: 5px solid var(--accent-color);">
+                <i class="fas fa-balance-scale"
+                    style="font-size: 2.5rem; color: var(--accent-color); margin-bottom: 15px; display: block;"></i>
+                <h3>Access & Equity</h3>
+                <p style="opacity: 0.9;">Every gifted student deserves opportunity.</p>
+            </div>
+            <div class="involved-card"
+                style="padding: 30px; text-align: center; background: rgba(255,255,255,0.05); border-radius: 15px; border-top: 5px solid var(--accent-color);">
+                <i class="fas fa-star"
+                    style="font-size: 2.5rem; color: var(--accent-color); margin-bottom: 15px; display: block;"></i>
+                <h3>Integrity & Accountability</h3>
+                <p style="opacity: 0.9;">We lead and serve with transparency and excellence.</p>
+            </div>
+            <div class="involved-card"
+                style="padding: 30px; text-align: center; background: rgba(255,255,255,0.05); border-radius: 15px; border-top: 5px solid var(--accent-color);">
+                <i class="fas fa-users"
+                    style="font-size: 2.5rem; color: var(--accent-color); margin-bottom: 15px; display: block;"></i>
+                <h3>Mentorship & Community</h3>
+                <p style="opacity: 0.9;">Growth happens in relationship.</p>
+            </div>
+            <div class="involved-card"
+                style="padding: 30px; text-align: center; background: rgba(255,255,255,0.05); border-radius: 15px; border-top: 5px solid var(--accent-color);">
+                <i class="fas fa-crown"
+                    style="font-size: 2.5rem; color: var(--accent-color); margin-bottom: 15px; display: block;"></i>
+                <h3>Leadership with Purpose</h3>
+                <p style="opacity: 0.9;">Success is measured by impact, not income.</p>
+            </div>
+            <div class="involved-card"
+                style="padding: 30px; text-align: center; background: rgba(255,255,255,0.05); border-radius: 15px; border-top: 5px solid var(--accent-color);">
+                <i class="fas fa-handshake"
+                    style="font-size: 2.5rem; color: var(--accent-color); margin-bottom: 15px; display: block;"></i>
+                <h3>Service & Give-Back</h3>
+                <p style="opacity: 0.9;">Those who rise should lift others.</p>
+            </div>
+        </div>
+    </section>
 
     <!-- Upcoming Event -->
     <section id="event">
