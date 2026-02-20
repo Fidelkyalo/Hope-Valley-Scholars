@@ -17,7 +17,12 @@
             --accent-color: #d4af37;
             --text-light: #f9f8f4;
             --bg-dark: #1a1812;
-            --transition: all 0.3s ease;
+            --transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        a,
+        button {
+            transition: var(--transition);
         }
 
         * {
