@@ -256,7 +256,29 @@
         /* General Sections */
         section {
             padding: 100px 10%;
+        }
+
+        section:nth-child(even) {
+            background-color: var(--secondary-color);
+        }
+
+        section:nth-child(odd) {
             background-color: var(--primary-color);
+        }
+
+        .hero+section,
+        #impact-pillars,
+        #mentorship-leadership,
+        #community-impact,
+        #education {
+            background-color: var(--secondary-color) !important;
+        }
+
+        #why-we-exist,
+        #education-pathway,
+        #market-readiness,
+        #event {
+            background-color: var(--primary-color) !important;
         }
 
         .section-header {
