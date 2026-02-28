@@ -510,7 +510,7 @@
             <a href="involved.html">Get Involved</a>
             <a href="board.html">Board</a>
             <a href="contact.html">Contact</a>
-            <a href="involved.html" class="donate-btn">Donate <i class="fas fa-heart"></i></a>
+            <a href="donate.html" class="donate-btn">Donate <i class="fas fa-heart"></i></a>
         </div>
         <div class="hamburger" id="hamburger">
             <i class="fas fa-bars"></i>
@@ -550,29 +550,40 @@
             </div>
             <div class="contact-form">
                 <form onsubmit="event.preventDefault(); alert('Message sent successfully!');">
-                    <div class="form-group">
-                        <label>Name</label>
-                        <input type="text" placeholder="Your Full Name" required>
+                    <h3 style="color: var(--accent-color); margin-bottom: 20px;">General Inquiries & Support</h3>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>First Name</label>
+                            <input type="text" placeholder="First Name" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Last Name</label>
+                            <input type="text" placeholder="Last Name" required>
+                        </div>
                     </div>
                     <div class="form-row">
                         <div class="form-group">
-                            <label>Email</label>
-                            <input type="email" placeholder="Your Email" required>
+                            <label>Email Address</label>
+                            <input type="email" placeholder="Email" required>
                         </div>
                         <div class="form-group">
-                            <label>Organization (optional)</label>
-                            <input type="text" placeholder="Organization Name">
+                            <label>Phone Number</label>
+                            <input type="tel" placeholder="Phone Number">
                         </div>
                     </div>
                     <div class="form-group">
-                        <label>Interest</label>
-                        <select id="interest" required>
-                            <option value="" disabled selected>Select Interest</option>
-                            <option value="Donate">Donate</option>
-                            <option value="Sponsor">Sponsor</option>
-                            <option value="Partner">Partner</option>
-                            <option value="Volunteer">Volunteer</option>
-                            <option value="Grant Inquiry">Grant Inquiry</option>
+                        <label>Organization/Church Affiliation (Optional)</label>
+                        <input type="text" placeholder="Organization">
+                    </div>
+                    <div class="form-group">
+                        <label>Subject</label>
+                        <select id="subject" required>
+                            <option value="" disabled selected>Select Subject</option>
+                            <option value="Sponsorship & Donations">Sponsorship & Donations</option>
+                            <option value="Partnerships & Grants">Partnerships & Grants</option>
+                            <option value="Mentorship & Volunteer Opportunities">Mentorship & Volunteer Opportunities
+                            </option>
+                            <option value="General Information">General Information</option>
                         </select>
                     </div>
                     <div class="form-group">
@@ -581,14 +592,37 @@
                     </div>
                     <button type="submit" class="btn btn-primary submit-btn">Send Message</button>
                 </form>
+
+                <hr style="border: 0; height: 1px; background: rgba(255,255,255,0.1); margin: 40px 0;">
+
+                <form onsubmit="event.preventDefault(); alert('Inquiry submitted successfully!');">
+                    <h3 style="color: var(--accent-color); margin-bottom: 20px;">Student Inquiry & Scholarship Interest
+                    </h3>
+                    <p style="font-size: 0.9rem; opacity: 0.8; margin-bottom: 20px;">*(Note: Applications are evaluated
+                        based on academic merit and financial need.)*</p>
+                    <div class="form-group">
+                        <label>Student Name</label>
+                        <input type="text" placeholder="Full Student Name" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Current School & Grade Level</label>
+                        <input type="text" placeholder="School and Grade">
+                    </div>
+                    <div class="form-group">
+                        <label>Guardian Name & Contact</label>
+                        <input type="text" placeholder="Guardian details">
+                    </div>
+                    <div class="form-group">
+                        <label>Briefly describe why you are seeking sponsorship:</label>
+                        <textarea rows="4" placeholder="Your reason" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary submit-btn"
+                        style="background: transparent; border: 2px solid var(--accent-color); color: var(--accent-color);">Submit
+                        Inquiry</button>
+                </form>
             </div>
         </div>
-        <div class="map-container" id="map-section">
-            <iframe width="100%" height="100%" frameborder="0" style="border:0"
-                src="https://www.google.com/maps?q=Queens%20Park%20Apartments%2C%20PAC%20Lane%20%28%20PAC%20University%20%29%2C%20QVMP%2B6C4%2C%20Nairobi&output=embed"
-                allowfullscreen>
-            </iframe>
-        </div>
+
     </section>
 
     <footer>
