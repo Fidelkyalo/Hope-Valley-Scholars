@@ -591,6 +591,14 @@
             .footer-grid {
                 text-align: center;
             }
+
+            .excellence-content {
+                grid-template-columns: 1fr !important;
+            }
+
+            .excellence-img-container {
+                display: none;
+            }
         }
 
         @keyframes fadeInDown {
@@ -792,9 +800,9 @@
 
     <!-- Excellence in Education -->
     <section id="excellence" style="background-color: var(--secondary-color) !important; padding: 100px 5%;">
-        <div
+        <div class="excellence-content"
             style="max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center;">
-            <div style="position: relative;">
+            <div class="excellence-img-container" style="position: relative;">
                 <img src="IMAGES/03.jpg.jpeg" alt="Excellence in Education - Graduation"
                     style="width: 100%; border-radius: 10px; border: 2px solid var(--accent-color); object-fit: cover; aspect-ratio: 16/9; box-shadow: 0 20px 40px rgba(0,0,0,0.3);">
             </div>
