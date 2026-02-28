@@ -448,6 +448,13 @@
             letter-spacing: 2px;
         }
 
+        .cheque-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-top: 30px;
+        }
+
         @media (max-width: 768px) {
             .footer-grid {
                 text-align: center;
@@ -459,6 +466,21 @@
 
             .page-header h1 {
                 font-size: 2.5rem;
+            }
+
+            .sponsorship-section,
+            .info-section {
+                padding: 60px 5%;
+            }
+
+            .info-box {
+                padding: 30px 20px;
+            }
+
+            .cheque-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+                text-align: center;
             }
         }
     </style>
@@ -557,7 +579,7 @@
                 Inc. Cheque donations are a meaningful way to support student sponsorship and are especially helpful for
                 churches, organizations, and major gifts.</p>
 
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-top: 30px;">
+            <div class="cheque-grid">
                 <div>
                     <h4 style="color: var(--text-light); margin-bottom: 10px;">Make Cheques Payable To:</h4>
                     <p style="font-weight: 600; color: var(--accent-color);">Hope Valley Scholars Inc</p>
