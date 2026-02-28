@@ -205,8 +205,14 @@
 
         .contact-grid {
             display: grid;
-            grid-template-columns: 1fr 1.5fr;
+            grid-template-columns: 1fr 1fr;
             gap: 60px;
+        }
+
+        @media (max-width: 992px) {
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
         }
 
         .contact-info i {
@@ -524,30 +530,36 @@
 
     <section>
         <div class="contact-grid">
-            <div class="contact-info">
-                <h2>Get in Touch</h2>
-                <br>
-                <div class="contact-item">
-                    <i class="fas fa-envelope"></i>
-                    <div>
-                        <p>Email Us</p><strong>info@hopevalleyscholars.org</strong>
+            <!-- Student Inquiry Form (Left) -->
+            <div class="contact-form">
+                <form onsubmit="event.preventDefault(); alert('Inquiry submitted successfully!');">
+                    <h3 style="color: var(--accent-color); margin-bottom: 20px;">Student Inquiry & Scholarship Interest
+                    </h3>
+                    <p style="font-size: 0.9rem; opacity: 0.8; margin-bottom: 20px;">*(Note: Applications are evaluated
+                        based on academic merit and financial need.)*</p>
+                    <div class="form-group">
+                        <label>Student Name</label>
+                        <input type="text" placeholder="Full Student Name" required>
                     </div>
-                </div>
-                <div class="contact-item">
-                    <i class="fas fa-phone"></i>
-                    <div>
-                        <p>Call Us</p><strong>+1 (555) 123-4567</strong>
+                    <div class="form-group">
+                        <label>Current School & Grade Level</label>
+                        <input type="text" placeholder="School and Grade">
                     </div>
-                </div>
-                <div class="contact-item">
-                    <i class="fas fa-map-marker-alt"></i>
-                    <div>
-                        <p>Location</p><strong>Queens Park Apartments, PAC Lane, Nairobi</strong>
+                    <div class="form-group">
+                        <label>Guardian Name & Contact</label>
+                        <input type="text" placeholder="Guardian details">
                     </div>
-                </div>
-                <br>
-                <span class="connect-text">Connect with the community</span>
+                    <div class="form-group">
+                        <label>Briefly describe why you are seeking sponsorship:</label>
+                        <textarea rows="4" placeholder="Your reason" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary submit-btn"
+                        style="background: transparent; border: 2px solid var(--accent-color); color: var(--accent-color);">Submit
+                        Inquiry</button>
+                </form>
             </div>
+
+            <!-- General Inquiries Form (Right) -->
             <div class="contact-form">
                 <form onsubmit="event.preventDefault(); alert('Message sent successfully!');">
                     <h3 style="color: var(--accent-color); margin-bottom: 20px;">General Inquiries & Support</h3>
@@ -592,37 +604,39 @@
                     </div>
                     <button type="submit" class="btn btn-primary submit-btn">Send Message</button>
                 </form>
-
-                <hr style="border: 0; height: 1px; background: rgba(255,255,255,0.1); margin: 40px 0;">
-
-                <form onsubmit="event.preventDefault(); alert('Inquiry submitted successfully!');">
-                    <h3 style="color: var(--accent-color); margin-bottom: 20px;">Student Inquiry & Scholarship Interest
-                    </h3>
-                    <p style="font-size: 0.9rem; opacity: 0.8; margin-bottom: 20px;">*(Note: Applications are evaluated
-                        based on academic merit and financial need.)*</p>
-                    <div class="form-group">
-                        <label>Student Name</label>
-                        <input type="text" placeholder="Full Student Name" required>
-                    </div>
-                    <div class="form-group">
-                        <label>Current School & Grade Level</label>
-                        <input type="text" placeholder="School and Grade">
-                    </div>
-                    <div class="form-group">
-                        <label>Guardian Name & Contact</label>
-                        <input type="text" placeholder="Guardian details">
-                    </div>
-                    <div class="form-group">
-                        <label>Briefly describe why you are seeking sponsorship:</label>
-                        <textarea rows="4" placeholder="Your reason" required></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-primary submit-btn"
-                        style="background: transparent; border: 2px solid var(--accent-color); color: var(--accent-color);">Submit
-                        Inquiry</button>
-                </form>
             </div>
         </div>
 
+        <div class="contact-info-centered"
+            style="text-align: center; margin-top: 80px; display: flex; flex-direction: column; align-items: center; gap: 30px;">
+            <h2>Get in Touch</h2>
+            <div style="display: flex; gap: 60px; justify-content: center; flex-wrap: wrap;">
+                <div class="contact-item" style="flex-direction: column; text-align: center; margin: 0;">
+                    <i class="fas fa-envelope" style="margin: 0 0 15px 0;"></i>
+                    <div>
+                        <p style="color: var(--accent-color); margin-bottom: 5px;">Email Us</p>
+                        <strong>info@hopevalleyscholars.org</strong>
+                    </div>
+                </div>
+                <div class="contact-item" style="flex-direction: column; text-align: center; margin: 0;">
+                    <i class="fas fa-phone" style="margin: 0 0 15px 0;"></i>
+                    <div>
+                        <p style="color: var(--accent-color); margin-bottom: 5px;">Call Us</p><strong>+1 (555)
+                            123-4567</strong>
+                    </div>
+                </div>
+                <div class="contact-item" style="flex-direction: column; text-align: center; margin: 0;">
+                    <i class="fas fa-map-marker-alt" style="margin: 0 0 15px 0;"></i>
+                    <div>
+                        <p style="color: var(--accent-color); margin-bottom: 5px;">Location</p><strong>Queens Park
+                            Apartments, PAC Lane, Nairobi</strong>
+                    </div>
+                </div>
+            </div>
+            <div style="margin-top: 20px;">
+                <span class="connect-text">Connect with the community</span>
+            </div>
+        </div>
     </section>
 
     <footer>
