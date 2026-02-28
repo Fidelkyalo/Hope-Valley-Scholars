@@ -179,6 +179,9 @@
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 40px;
             margin-top: 50px;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .policy-card {
@@ -292,9 +295,22 @@
             letter-spacing: 2px;
         }
 
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .page-header h1 {
+                font-size: 3rem;
+            }
+
+            .policy-grid {
+                gap: 30px;
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            }
+        }
+
         @media (max-width: 768px) {
             .navbar {
                 justify-content: space-between;
+                padding: 1rem 5%;
             }
 
             .logo-text {
@@ -322,12 +338,39 @@
                 display: block;
             }
 
+            .page-header {
+                padding: 120px 5% 50px;
+            }
+
             .page-header h1 {
                 font-size: 2.5rem;
             }
 
+            section {
+                padding: 50px 5%;
+            }
+
             .policy-grid {
                 grid-template-columns: 1fr;
+                gap: 25px;
+            }
+
+            .policy-card {
+                padding: 30px 20px;
+            }
+
+            footer {
+                padding: 60px 5% 30px;
+                text-align: center;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 35px;
+            }
+
+            .footer-col ul li a:hover {
+                padding-left: 0;
             }
         }
     </style>
