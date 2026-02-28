@@ -1,10 +1,10 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hope Valley Scholars | Board & Governance</title>
+    <title>Hope Valley Scholars | Official Policies & Documents</title>
     <link rel="icon" type="image/png" href="IMAGES/HVS Logo.png">
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap"
@@ -141,16 +141,10 @@
             transition: var(--transition);
         }
 
-
         .donate-btn:hover {
             transform: translateY(-3px);
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
             background: #fff;
-        }
-
-        .donate-btn:hover i {
-            transform: scale(1.3);
-            color: #ff0000;
         }
 
         .hamburger {
@@ -180,59 +174,65 @@
             background-color: var(--secondary-color);
         }
 
-        .board-grid {
+        .policy-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 40px;
             margin-top: 50px;
         }
 
-        .board-card {
+        .policy-card {
             background: rgba(255, 255, 255, 0.05);
             padding: 40px;
             border-radius: 20px;
             text-align: center;
             border-top: 5px solid var(--accent-color);
             transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
         }
 
-        .board-card:hover {
+        .policy-card:hover {
             transform: translateY(-10px);
             background: rgba(255, 255, 255, 0.1);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
         }
 
-        .board-card i {
+        .policy-card i {
             font-size: 3rem;
             color: var(--accent-color);
             margin-bottom: 20px;
-            display: block;
         }
 
-        .board-card h3 {
-            margin-bottom: 10px;
-            color: var(--text-light);
-        }
-
-        .board-card p {
-            color: var(--accent-color);
-            font-weight: 600;
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .governance-box {
-            background: rgba(255, 255, 255, 0.05);
-            padding: 50px;
-            border-radius: 20px;
-            border-left: 5px solid var(--accent-color);
-            max-width: 900px;
-            margin: 50px auto 0;
-        }
-
-        .governance-box h2 {
-            color: var(--accent-color);
+        .policy-card h3 {
             margin-bottom: 20px;
+            font-size: 1.4rem;
+        }
+
+        .btn {
+            padding: 12px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            display: inline-block;
+            cursor: pointer;
+            border: none;
+            font-size: 0.9rem;
+        }
+
+        .btn-download {
+            background: var(--accent-color);
+            color: var(--bg-dark);
+            margin-top: 10px;
+        }
+
+        .btn-download:hover {
+            background: #fff;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
         }
 
         footer {
@@ -276,23 +276,6 @@
             padding-left: 5px;
         }
 
-        /* Responsive Footer Logo Reordering */
-        @media (min-width: 768px) {
-            .footer-col:first-child {
-                display: flex;
-                flex-direction: column;
-            }
-
-            .footer-col:first-child a[href="index.html"] {
-                order: 10;
-                margin-top: 15px;
-            }
-
-            .footer-col:first-child a[href="index.html"] img {
-                margin-bottom: 0 !important;
-            }
-        }
-
         .footer-bottom {
             text-align: center;
             padding-top: 30px;
@@ -300,24 +283,18 @@
             font-size: 0.9rem;
         }
 
-        .footer-bottom a {
+        .connect-text {
             color: var(--accent-color);
-            text-decoration: none;
+            font-weight: 600;
+            display: block;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
         }
 
         @media (max-width: 768px) {
             .navbar {
                 justify-content: space-between;
-            }
-
-            .logo {
-                display: flex;
-                font-size: 1.2rem;
-                gap: 10px;
-            }
-
-            .logo img {
-                height: 40px;
             }
 
             .logo-text {
@@ -345,38 +322,12 @@
                 display: block;
             }
 
-            .page-header {
-                padding: 120px 5% 40px;
-            }
-
             .page-header h1 {
-                font-size: 2rem;
+                font-size: 2.5rem;
             }
 
-            section {
-                padding: 60px 5%;
-            }
-
-            .board-grid {
+            .policy-grid {
                 grid-template-columns: 1fr;
-                gap: 30px;
-            }
-
-            .board-card {
-                padding: 30px;
-            }
-
-            .governance-box {
-                padding: 30px;
-                text-align: left;
-            }
-
-            .footer-grid {
-                text-align: center;
-            }
-
-            .footer-separator {
-                display: none;
             }
         }
     </style>
@@ -391,8 +342,8 @@
         <div class="nav-links" id="nav-links">
             <a href="index.html#about">About</a>
             <a href="programs.html">Programs</a>
-            <a href="impact.html">Impact</a>
             <a href="involved.html">Get Involved</a>
+            <a href="impact.html">Impact</a>
             <a href="board.html">Board</a>
             <a href="contact.html">Contact</a>
             <a href="donate.html" class="donate-btn">Donate <i class="fas fa-heart"></i></a>
@@ -403,87 +354,97 @@
     </nav>
 
     <header class="page-header">
-        <h1 style="color: var(--accent-color);">Board & Governance</h1>
-        <h2>Committed to integrity, transparency, and mission alignment.</h2>
+        <h1>Official Policies & Documents</h1>
+        <p>Promoting transparency, integrity, and accountability in all our operations.</p>
     </header>
 
-    <section id="board-members">
-        <div style="text-align: center; margin-bottom: 30px; max-width: 900px; margin: 0 auto 50px auto;">
-            <p style="font-size: 1.1rem; opacity: 0.9;">Hope Valley Scholars Inc is governed by a dedicated Board of
-                Directors responsible for strategic guidance, fiduciary oversight, and mission alignment. Our board
-                brings diverse professional expertise and a shared commitment to educational equity, mentorship, and
-                community transformation.</p>
-        </div>
+    <section>
+        <div class="policy-grid">
+            <div class="policy-card">
+                <i class="fas fa-child"></i>
+                <h3>Child Safeguarding Policy</h3>
+                <p style="margin-bottom: 20px; opacity: 0.8;">Ensuring the safety and well-being of all students in our
+                    program.</p>
+                <a href="Hope%20Valley%20Scholars%20Child%20Safeguarding%20Policy.docx" class="btn btn-download"
+                    download>
+                    <i class="fas fa-download"
+                        style="font-size: 1rem; color: inherit; margin-bottom: 0; margin-right: 8px;"></i> Download
+                    (.docx)
+                </a>
+            </div>
 
-        <div style="text-align: center; margin-bottom: 30px;">
-            <h2 style="color: var(--accent-color);">Board of Directors</h2>
-            <div style="width: 80px; height: 4px; background: var(--accent-color); margin: 20px auto;"></div>
-        </div>
+            <div class="policy-card">
+                <i class="fas fa-hand-holding-usd"></i>
+                <h3>Donation Refund Policy</h3>
+                <p style="margin-bottom: 20px; opacity: 0.8;">Guidelines on contributions and refund procedures.</p>
+                <a href="Hope%20Valley%20Scholars%20Donation%20Refund%20Policy.docx" class="btn btn-download" download>
+                    <i class="fas fa-download"
+                        style="font-size: 1rem; color: inherit; margin-bottom: 0; margin-right: 8px;"></i> Download
+                    (.docx)
+                </a>
+            </div>
 
-        <div class="board-grid">
-            <div class="board-card">
-                <i class="fas fa-user-tie"></i>
-                <h3 style="color: var(--text-light);">Dr. Joan Githua</h3>
-                <p
-                    style="color: var(--accent-color); font-weight: 600; text-transform: uppercase; font-size: 0.9rem; margin-bottom: 15px;">
-                    Founder & Board Chair</p>
-                <p style="font-size: 0.9rem; opacity: 0.8; text-transform: none; font-weight: normal;">Provides
-                    strategic leadership and vision for the organization, ensuring mission alignment, growth, and strong
-                    partnerships that expand opportunities for scholars.</p>
+            <div class="policy-card">
+                <i class="fas fa-user-shield"></i>
+                <h3>Mentor Code of Conduct</h3>
+                <p style="margin-bottom: 20px; opacity: 0.8;">Standards of behavior for our volunteer mentors.</p>
+                <a href="Hope%20Valley%20Scholars%20Mentor%20Code%20of%20Conduct.docx" class="btn btn-download"
+                    download>
+                    <i class="fas fa-download"
+                        style="font-size: 1rem; color: inherit; margin-bottom: 0; margin-right: 8px;"></i> Download
+                    (.docx)
+                </a>
             </div>
-            <div class="board-card">
-                <i class="fas fa-user-doctor"></i>
-                <h3 style="color: var(--text-light);">Dr. John Kathuri</h3>
-                <p
-                    style="color: var(--accent-color); font-weight: 600; text-transform: uppercase; font-size: 0.9rem; margin-bottom: 15px;">
-                    Vice Chair</p>
-                <p style="font-size: 0.9rem; opacity: 0.8; text-transform: none; font-weight: normal;">Supports
-                    governance and strategic planning while contributing insight into leadership development and
-                    long-term organizational sustainability.</p>
+
+            <div class="policy-card">
+                <i class="fas fa-camera"></i>
+                <h3>Photo Media Consent Form</h3>
+                <p style="margin-bottom: 20px; opacity: 0.8;">Consent for the use of images and media in our
+                    communications.</p>
+                <a href="Hope%20Valley%20Scholars%20Photo%20Media%20Consent%20Form.docx" class="btn btn-download"
+                    download>
+                    <i class="fas fa-download"
+                        style="font-size: 1rem; color: inherit; margin-bottom: 0; margin-right: 8px;"></i> Download
+                    (.docx)
+                </a>
             </div>
-            <div class="board-card">
-                <i class="fas fa-briefcase"></i>
-                <h3 style="color: var(--text-light);">Melchizedek Bosire</h3>
-                <p
-                    style="color: var(--accent-color); font-weight: 600; text-transform: uppercase; font-size: 0.9rem; margin-bottom: 15px;">
-                    Treasurer</p>
-                <p style="font-size: 0.9rem; opacity: 0.8; text-transform: none; font-weight: normal;">Oversees
-                    financial stewardship, budgeting, and accountability, ensuring responsible management of resources
-                    entrusted to the organization.</p>
+
+            <div class="policy-card">
+                <i class="fas fa-user-secret"></i>
+                <h3>Privacy Policy</h3>
+                <p style="margin-bottom: 20px; opacity: 0.8;">How we collect, use, and protect your personal data.</p>
+                <a href="Hope%20Valley%20Scholars%20Privacy%20Policy.docx" class="btn btn-download" download>
+                    <i class="fas fa-download"
+                        style="font-size: 1rem; color: inherit; margin-bottom: 0; margin-right: 8px;"></i> Download
+                    (.docx)
+                </a>
             </div>
-            <div class="board-card">
-                <i class="fas fa-pen-nib"></i>
-                <h3 style="color: var(--text-light);">Lucy Kimani</h3>
-                <p
-                    style="color: var(--accent-color); font-weight: 600; text-transform: uppercase; font-size: 0.9rem; margin-bottom: 15px;">
-                    Secretary</p>
-                <p style="font-size: 0.9rem; opacity: 0.8; text-transform: none; font-weight: normal;">Maintains
-                    governance records, board coordination, and organizational compliance to support effective and
-                    transparent operations.</p>
+
+            <div class="policy-card">
+                <i class="fas fa-file-signature"></i>
+                <h3>Terms of Use</h3>
+                <p style="margin-bottom: 20px; opacity: 0.8;">Legal terms and conditions for using our website and
+                    services.</p>
+                <a href="Hope%20Valley%20Scholars%20Terms%20of%20Use.docx" class="btn btn-download" download>
+                    <i class="fas fa-download"
+                        style="font-size: 1rem; color: inherit; margin-bottom: 0; margin-right: 8px;"></i> Download
+                    (.docx)
+                </a>
             </div>
-            <div class="board-card">
-                <i class="fas fa-users-rectangle"></i>
-                <h3 style="color: var(--text-light);">Martin Muya</h3>
-                <p
-                    style="color: var(--accent-color); font-weight: 600; text-transform: uppercase; font-size: 0.9rem; margin-bottom: 15px;">
-                    Director at Large</p>
-                <p style="font-size: 0.9rem; opacity: 0.8; text-transform: none; font-weight: normal;">Provides advisory
-                    support and strategic input to strengthen programs, partnerships, and community engagement.</p>
+
+            <div class="policy-card">
+                <i class="fas fa-user-friends"></i>
+                <h3>Volunteer Agreement</h3>
+                <p style="margin-bottom: 20px; opacity: 0.8;">Formal agreement for those volunteering with our
+                    organization.</p>
+                <a href="Hope%20Valley%20Scholars%20Volunteer%20Agreement.docx" class="btn btn-download" download>
+                    <i class="fas fa-download"
+                        style="font-size: 1rem; color: inherit; margin-bottom: 0; margin-right: 8px;"></i> Download
+                    (.docx)
+                </a>
             </div>
         </div>
     </section>
-
-    <section id="governance">
-        <div class="governance-box">
-            <h2>Governance Commitment</h2>
-            <p>Hope Valley Scholars Inc is governed by a five-member Board committed to financial transparency,
-                fiduciary responsibility, and mission alignment. The organization maintains formal bylaws and a Conflict
-                of Interest Policy consistent with nonprofit best practices.</p>
-            <p style="margin-top: 20px;">Our board ensures that every contribution is used effectively to fulfill our
-                mission of empowering gifted students in Kenya.</p>
-        </div>
-    </section>
-
 
     <footer>
         <div class="footer-grid">
@@ -507,8 +468,6 @@
                     <li><a href="board.html">Board</a></li>
                     <li><a href="faq.html">FAQ</a></li>
                     <li><a href="policies.html">Policies</a></li>
-                    <li><a href="#" onclick="alert('Sponsor Dashboard coming soon!')" style="opacity: 0.6;">Sponsor
-                            Dashboard (Future)</a></li>
                 </ul>
             </div>
             <div class="footer-col">
