@@ -567,18 +567,18 @@
 
             .hero {
                 height: auto;
-                min-height: 85vh;
-                /* Slightly taller to accommodate content without clipping */
-                padding: 180px 4% 60px;
-                /* Heavy top padding to clear the 80px navbar */
+                min-height: auto;
+                /* Remove fixed height which caused the extra space/shades */
+                padding: 110px 4% 50px;
+                /* Reduced padding to make the section shorter and fit the image better */
                 justify-content: center;
                 align-items: center;
-                background-size: contain;
-                /* Shows "all of it" without any stretching/squeezing */
+                background-size: cover;
+                /* Use cover to fill the area, but the shorter section means less cropping */
                 background-repeat: no-repeat;
-                background-color: #2a2820;
                 /* Dark matching background to fill any gaps */
-                background-position: center;
+                background-position: center 20%;
+                /* Focus on the upper-middle of the photo */
                 border-bottom: 2px solid var(--accent-color);
             }
 
