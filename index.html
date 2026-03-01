@@ -186,7 +186,7 @@
             align-items: center;
             justify-content: flex-start;
             background: linear-gradient(to right, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.2)),
-                url('IMAGES/Home-Welcome.jpg') center/cover no-repeat;
+                url('IMAGES/Home-Welcome.jpg?v=2') no-repeat center / cover;
             color: white;
             position: relative;
             overflow: hidden;
@@ -573,12 +573,11 @@
                 /* Reduced padding to make the section shorter and fit the image better */
                 justify-content: center;
                 align-items: center;
+                background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.2)),
+                    url('IMAGES/Home-Welcome.jpg?v=2');
                 background-size: cover;
-                /* Use cover to fill the area, but the shorter section means less cropping */
                 background-repeat: no-repeat;
-                /* Dark matching background to fill any gaps */
                 background-position: center 20%;
-                /* Focus on the upper-middle of the photo */
                 border-bottom: 2px solid var(--accent-color);
             }
 
