@@ -567,23 +567,26 @@
 
             .hero {
                 height: auto;
-                min-height: 80vh;
-                /* Reduced height to show more image width */
-                padding: 120px 5% 60px;
+                min-height: auto;
+                aspect-ratio: 4 / 3;
+                /* Proportional to the image to show the "whole" thing */
+                padding: 30px 5%;
                 justify-content: center;
+                align-items: center;
                 background-attachment: scroll;
-                background-position: center center;
+                background-position: center;
+                background-size: cover;
             }
 
             .hero-banner-content {
-                max-width: 100%;
-                padding: 35px 20px;
+                max-width: 95%;
+                padding: 25px 20px;
                 text-align: center;
                 border-left: none;
-                border-top: 6px solid var(--accent-color);
+                border-top: 5px solid var(--accent-color);
                 background: rgba(74, 65, 42, 0.7);
-                /* Slightly more transparent to reveal more image */
                 backdrop-filter: blur(8px);
+                border-radius: 15px;
             }
 
             .hero-banner-content h1 {
