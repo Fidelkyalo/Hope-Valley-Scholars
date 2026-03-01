@@ -573,8 +573,11 @@
                 /* Heavy top padding to clear the 80px navbar */
                 justify-content: center;
                 align-items: center;
-                background-size: 100% 100%;
-                /* Squeezes the image to show it all without cropping */
+                background-size: contain;
+                /* Shows "all of it" without any stretching/squeezing */
+                background-repeat: no-repeat;
+                background-color: #2a2820;
+                /* Dark matching background to fill any gaps */
                 background-position: center;
                 border-bottom: 2px solid var(--accent-color);
             }
