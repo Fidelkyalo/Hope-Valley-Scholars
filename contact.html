@@ -532,12 +532,7 @@
         <div class="contact-grid">
             <!-- Student Inquiry Form (Left) -->
             <div class="contact-form">
-                <form action="https://formsubmit.co/info@hopevalleyscholars.org" method="POST">
-                    <!-- FormSubmit Configuration -->
-                    <input type="hidden" name="_subject" value="New Student Inquiry - Hope Valley Scholars">
-                    <input type="hidden" name="_captcha" value="false">
-                    <input type="hidden" name="_template" value="table">
-
+                <form onsubmit="sendFormEmail(event, 'New Student Inquiry - Hope Valley Scholars')">
                     <h3 style="color: var(--accent-color); margin-bottom: 20px;">Student Inquiry & Scholarship Interest
                     </h3>
                     <p style="font-size: 0.9rem; opacity: 0.8; margin-bottom: 20px;">*(Note: Applications are evaluated
@@ -566,12 +561,7 @@
 
             <!-- General Inquiries Form (Right) -->
             <div class="contact-form">
-                <form action="https://formsubmit.co/info@hopevalleyscholars.org" method="POST">
-                    <!-- FormSubmit Configuration -->
-                    <input type="hidden" name="_subject" value="General Inquiry - Hope Valley Scholars">
-                    <input type="hidden" name="_captcha" value="false">
-                    <input type="hidden" name="_template" value="table">
-
+                <form onsubmit="sendFormEmail(event, 'General Inquiry - Hope Valley Scholars')">
                     <h3 style="color: var(--accent-color); margin-bottom: 20px;">General Inquiries & Support</h3>
                     <div class="form-row">
                         <div class="form-group">
@@ -710,6 +700,21 @@
         const hamburger = document.getElementById('hamburger');
         const navLinks = document.getElementById('nav-links');
         hamburger.addEventListener('click', () => navLinks.classList.toggle('active'));
+
+        function sendFormEmail(event, formSubject) {
+            event.preventDefault();
+            const form = event.target;
+            const formData = new FormData(form);
+            let body = "New inquiry from Hope Valley Scholars Website:\n\n";
+
+            for (let [key, value] of formData.entries()) {
+                let label = key.replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
+                body += `${label}: ${value}\n`;
+            }
+
+            const mailtoUrl = `mailto:info@hopevalleyscholars.org?subject=${encodeURIComponent(formSubject)}&body=${encodeURIComponent(body)}`;
+            window.location.href = mailtoUrl;
+        }
     </script>
 </body>
 
