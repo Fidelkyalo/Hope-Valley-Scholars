@@ -1,0 +1,902 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hope Valley Scholars | Board & Governance</title>
+    <link rel="icon" type="image/png" href="IMAGES/HVS Logo.png">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #58533D;
+            --secondary-color: #4a412a;
+            --accent-color: #d4af37;
+            --text-light: #f9f8f4;
+            --bg-dark: #1a1812;
+            --transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        a,
+        button {
+            transition: var(--transition);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--text-light);
+            background-color: var(--primary-color);
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+            animation: fadeIn 0.8s ease-out forwards;
+            display: flow-root;
+        }
+
+        h1,
+        h2,
+        h3 {
+            font-family: 'Playfair Display', serif;
+        }
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 5%;
+            background: var(--primary-color);
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            transition: var(--transition);
+        }
+
+        .navbar.scrolled {
+            padding: 1rem 5%;
+            background: var(--secondary-color);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-size: 1.6rem;
+            font-weight: 800;
+            color: var(--text-light);
+            text-decoration: none;
+            letter-spacing: -0.5px;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .logo img {
+            height: 50px;
+            width: auto;
+            object-fit: contain;
+            cursor: pointer;
+        }
+
+        .logo span {
+            color: var(--accent-color);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-light);
+            font-weight: 500;
+            font-size: 0.85rem;
+            transition: var(--transition);
+            position: relative;
+            opacity: 0.9;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .nav-links a:hover {
+            opacity: 1;
+            color: var(--accent-color);
+        }
+
+        .donate-btn {
+            background: var(--accent-color);
+            color: var(--bg-dark) !important;
+            padding: 0.6rem 1.2rem;
+            border-radius: 50px;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            font-weight: 700;
+        }
+
+        .donate-btn i {
+            font-size: 0.9rem;
+            color: #ff4d4d;
+            transition: var(--transition);
+        }
+
+
+        .donate-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            background: #fff;
+        }
+
+        .donate-btn:hover i {
+            transform: scale(1.3);
+            color: #ff0000;
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+            color: var(--text-light);
+        }
+
+        .page-header {
+            margin: 0;
+            padding: 150px 10% 80px;
+            text-align: center;
+            background: transparent;
+        }
+
+        .page-header h1 {
+            font-size: 3.5rem;
+            margin-bottom: 10px;
+        }
+
+        section {
+            padding: 80px 10%;
+        }
+
+        section:nth-child(even) {
+            background-color: var(--secondary-color);
+        }
+
+        .board-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
+        }
+
+        .board-card {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 40px;
+            border-radius: 20px;
+            text-align: center;
+            border-top: 5px solid var(--accent-color);
+            transition: var(--transition);
+        }
+
+        .board-card:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .board-card>i {
+            font-size: 3rem;
+            color: var(--accent-color);
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .board-card h3 {
+            margin-bottom: 10px;
+            color: var(--text-light);
+        }
+
+        .board-card p {
+            color: var(--accent-color);
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Modal Styles */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            overflow-y: auto;
+        }
+
+        .modal-overlay.active {
+            display: flex;
+        }
+
+        .modal-content {
+            background: var(--secondary-color);
+            border-radius: 20px;
+            padding: 50px;
+            max-width: 800px;
+            width: 100%;
+            max-height: 85vh;
+            overflow-y: auto;
+            position: relative;
+            border-top: 5px solid var(--accent-color);
+            animation: modalFadeIn 0.4s ease-out;
+        }
+
+        @keyframes modalFadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 20px;
+            right: 25px;
+            font-size: 1.8rem;
+            color: var(--text-light);
+            cursor: pointer;
+            background: none;
+            border: none;
+            opacity: 0.7;
+            transition: var(--transition);
+        }
+
+        .modal-close:hover {
+            opacity: 1;
+            color: var(--accent-color);
+        }
+
+        .modal-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .modal-header img {
+            width: 120px;
+            height: 120px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 3px solid var(--accent-color);
+            margin-bottom: 15px;
+        }
+
+        .modal-header h2 {
+            color: var(--text-light);
+            font-size: 1.8rem;
+            margin-bottom: 5px;
+        }
+
+        .modal-header .modal-title {
+            color: var(--accent-color);
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+        }
+
+        .modal-body p {
+            color: var(--text-light);
+            opacity: 0.9;
+            font-size: 1rem;
+            line-height: 1.8;
+            margin-bottom: 18px;
+        }
+
+        .modal-body h3 {
+            color: var(--accent-color);
+            font-size: 1.3rem;
+            margin: 30px 0 15px;
+        }
+
+        @media (max-width: 768px) {
+            .modal-content {
+                padding: 30px 20px;
+                max-height: 90vh;
+            }
+        }
+
+        .governance-box {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 50px;
+            border-radius: 20px;
+            border-left: 5px solid var(--accent-color);
+            max-width: 900px;
+            margin: 50px auto 0;
+        }
+
+        .governance-box h2 {
+            color: var(--accent-color);
+            margin-bottom: 20px;
+        }
+
+        footer {
+            background: var(--primary-color);
+            color: white;
+            padding: 80px 10% 40px;
+            border-top: 5px solid var(--accent-color);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+
+        .footer-col h4 {
+            color: var(--accent-color);
+            margin-bottom: 25px;
+            font-size: 1.2rem;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 12px;
+        }
+
+        .footer-col ul li a {
+            color: var(--text-light);
+            text-decoration: none;
+            opacity: 0.8;
+            transition: var(--transition);
+        }
+
+        .footer-col ul li a:hover {
+            opacity: 1;
+            color: var(--accent-color);
+            padding-left: 5px;
+        }
+
+        /* Responsive Footer Logo Reordering */
+        @media (min-width: 768px) {
+            .footer-col:first-child {
+                display: flex;
+                flex-direction: column;
+            }
+
+            .footer-col:first-child a[href="index.html"] {
+                order: 10;
+                margin-top: 15px;
+            }
+
+            .footer-col:first-child a[href="index.html"] img {
+                margin-bottom: 0 !important;
+            }
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+        }
+
+        .footer-bottom a {
+            color: var(--accent-color);
+            text-decoration: none;
+        }
+
+        @media (max-width: 768px) {
+            .navbar {
+                justify-content: space-between;
+            }
+
+            .logo {
+                display: flex;
+                font-size: 1.2rem;
+                gap: 10px;
+            }
+
+            .logo img {
+                height: 40px;
+            }
+
+            .logo-text {
+                display: none;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: var(--secondary-color);
+                flex-direction: column;
+                padding: 2rem;
+                text-align: center;
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .hamburger {
+                display: block;
+            }
+
+            .page-header {
+                padding: 120px 5% 40px;
+            }
+
+            .page-header h1 {
+                font-size: 2rem;
+            }
+
+            section {
+                padding: 60px 5%;
+            }
+
+            .board-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .board-card {
+                padding: 30px;
+            }
+
+            .governance-box {
+                padding: 30px;
+                text-align: left;
+            }
+
+            .footer-grid {
+                text-align: center;
+            }
+
+            .footer-separator {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar" id="navbar">
+        <a href="index.html" class="logo">
+            <img src="IMAGES/HVS Logo.png" alt="Hope Valley Scholars Logo">
+            <span class="logo-text">HOPE VALLEY <span>SCHOLARS</span></span>
+        </a>
+        <div class="nav-links" id="nav-links">
+            <a href="index.html#about">About</a>
+            <a href="programs.html">Programs</a>
+            <a href="impact.html">Impact</a>
+            <a href="involved.html">Get Involved</a>
+            <a href="board.html">Board</a>
+            <a href="contact.html">Contact</a>
+            <a href="donate.html" class="donate-btn">Donate <i class="fas fa-heart"></i></a>
+        </div>
+        <div class="hamburger" id="hamburger">
+            <i class="fas fa-bars"></i>
+        </div>
+    </nav>
+
+    <header class="page-header">
+        <h1 style="color: var(--accent-color);">Board & Governance</h1>
+        <h2>Committed to integrity, transparency, and mission alignment.</h2>
+    </header>
+
+    <section id="board-members">
+        <div style="text-align: center; margin-bottom: 30px; max-width: 900px; margin: 0 auto 50px auto;">
+            <p style="font-size: 1.1rem; opacity: 0.9;">Hope Valley Scholars Inc is governed by a dedicated Board of
+                Directors responsible for strategic guidance, fiduciary oversight, and mission alignment. Our board
+                brings diverse professional expertise and a shared commitment to educational equity, mentorship, and
+                community transformation.</p>
+        </div>
+
+        <div style="text-align: center; margin-bottom: 30px;">
+            <h2 style="color: var(--accent-color);">Board of Directors</h2>
+            <div style="width: 80px; height: 4px; background: var(--accent-color); margin: 20px auto;"></div>
+        </div>
+
+        <div class="board-grid">
+            <div class="board-card">
+                <img src="IMAGES/Dr. Joan Githua.jpeg" alt="Dr. Joan Githua"
+                    style="width: 150px; height: 150px; object-fit: cover; border-radius: 50%; margin-bottom: 20px; border: 3px solid var(--accent-color); display: block; margin-left: auto; margin-right: auto;">
+                <h3 style="color: var(--text-light);">Dr. Joan Githua</h3>
+                <p
+                    style="color: var(--accent-color); font-weight: 600; text-transform: uppercase; font-size: 0.9rem; margin-bottom: 15px;">
+                    Founder & Board Chair</p>
+                <a href="#" onclick="openModal('modal-joan'); return false;"
+                    style="background: transparent; color: var(--text-light); text-decoration: none; font-weight: 600; display: inline-flex; align-items: center; gap: 8px; font-size: 0.9rem; cursor: pointer;"><i
+                        class="fas fa-external-link-alt" style="font-size: 0.85rem; position: relative; top: 2px;"></i>
+                    View</a>
+            </div>
+            <div class="board-card">
+                <img src="IMAGES/John Kathuri.jpeg" alt="Dr. John Kathuri"
+                    style="width: 150px; height: 150px; object-fit: cover; border-radius: 50%; margin-bottom: 20px; border: 3px solid var(--accent-color); display: block; margin-left: auto; margin-right: auto;">
+                <h3 style="color: var(--text-light);">Dr. John Kathuri</h3>
+                <p
+                    style="color: var(--accent-color); font-weight: 600; text-transform: uppercase; font-size: 0.9rem; margin-bottom: 15px;">
+                    Vice Chair</p>
+                <a href="#" onclick="openModal('modal-john'); return false;"
+                    style="background: transparent; color: var(--text-light); text-decoration: none; font-weight: 600; display: inline-flex; align-items: center; gap: 8px; font-size: 0.9rem; cursor: pointer;"><i
+                        class="fas fa-external-link-alt" style="font-size: 0.85rem; position: relative; top: 2px;"></i>
+                    View</a>
+            </div>
+            <div class="board-card">
+                <img src="IMAGES/Melchizedek Bosire.jpeg" alt="Melchizedek Bosire"
+                    style="width: 150px; height: 150px; object-fit: cover; border-radius: 50%; margin-bottom: 20px; border: 3px solid var(--accent-color); display: block; margin-left: auto; margin-right: auto;">
+                <h3 style="color: var(--text-light);">Melchizedek Bosire</h3>
+                <p
+                    style="color: var(--accent-color); font-weight: 600; text-transform: uppercase; font-size: 0.9rem; margin-bottom: 15px;">
+                    Treasurer</p>
+                <a href="#" onclick="openModal('modal-melchizedek'); return false;"
+                    style="background: transparent; color: var(--text-light); text-decoration: none; font-weight: 600; display: inline-flex; align-items: center; gap: 8px; font-size: 0.9rem; cursor: pointer;"><i
+                        class="fas fa-external-link-alt" style="font-size: 0.85rem; position: relative; top: 2px;"></i>
+                    View</a>
+            </div>
+            <div class="board-card">
+                <img src="IMAGES/Caroline Tumuti.jpeg" alt="Caroline Tumuti"
+                    style="width: 150px; height: 150px; object-fit: cover; border-radius: 50%; margin-bottom: 20px; border: 3px solid var(--accent-color); display: block; margin-left: auto; margin-right: auto;">
+                <h3 style="color: var(--text-light);">Caroline Tumuti</h3>
+                <p
+                    style="color: var(--accent-color); font-weight: 600; text-transform: uppercase; font-size: 0.9rem; margin-bottom: 15px;">
+                    Secretary</p>
+                <a href="#" onclick="openModal('modal-caroline'); return false;"
+                    style="background: transparent; color: var(--text-light); text-decoration: none; font-weight: 600; display: inline-flex; align-items: center; gap: 8px; font-size: 0.9rem; cursor: pointer;"><i
+                        class="fas fa-external-link-alt" style="font-size: 0.85rem; position: relative; top: 2px;"></i>
+                    View</a>
+            </div>
+            <div class="board-card">
+                <img src="IMAGES/Sammy Wambugu.jpeg" alt="Sammy Wambugu"
+                    style="width: 150px; height: 150px; object-fit: cover; border-radius: 50%; margin-bottom: 20px; border: 3px solid var(--accent-color); display: block; margin-left: auto; margin-right: auto;">
+                <h3 style="color: var(--text-light);">Sammy Wambugu</h3>
+                <p
+                    style="color: var(--accent-color); font-weight: 600; text-transform: uppercase; font-size: 0.9rem; margin-bottom: 15px;">
+                    Director at Large</p>
+                <a href="#" onclick="openModal('modal-sammy'); return false;"
+                    style="background: transparent; color: var(--text-light); text-decoration: none; font-weight: 600; display: inline-flex; align-items: center; gap: 8px; font-size: 0.9rem; cursor: pointer;"><i
+                        class="fas fa-external-link-alt" style="font-size: 0.85rem; position: relative; top: 2px;"></i>
+                    View</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="governance">
+        <div class="governance-box">
+            <h2>Governance Commitment</h2>
+            <p>Hope Valley Scholars Inc is governed by a five-member Board committed to financial transparency,
+                fiduciary responsibility, and mission alignment. The organization maintains formal bylaws and a Conflict
+                of Interest Policy consistent with nonprofit best practices.</p>
+            <p style="margin-top: 20px;">Our board ensures that every contribution is used effectively to fulfill our
+                mission of empowering gifted students in Kenya.</p>
+            <a href="policies.html" class="btn"
+                style="background: var(--accent-color); color: var(--bg-dark); margin-top: 25px; display: inline-block; text-decoration: none; font-weight: 700; padding: 12px 30px; border-radius: 50px;">View
+                Official Policies</a>
+        </div>
+    </section>
+
+
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <a href="index.html">
+                    <img src="IMAGES/HVS Logo.png" alt="Hope Valley Scholars Logo"
+                        style="height: 60px; margin-bottom: 20px;">
+                </a>
+                <h4>Hope Valley Scholars</h4>
+                <p>Supporting gifted students in Kenya through education, mentorship, and leadership development.</p>
+                <span class="connect-text" style="margin-top:20px; font-size: 0.8rem;">Connect with the community</span>
+            </div>
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#about">About</a></li>
+                    <li><a href="programs.html">Programs</a></li>
+                    <li><a href="impact.html">Impact</a></li>
+                    <li><a href="involved.html">Get Involved</a></li>
+                    <li><a href="board.html">Board</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
+                    <li><a href="policies.html">Policies</a></li>
+                    <li><a href="#" onclick="alert('Sponsor Dashboard coming soon!')" style="opacity: 0.6;">Sponsor
+                            Dashboard (Future)</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Programs</h4>
+                <ul>
+                    <li><a href="programs.html">Education Pathway</a></li>
+                    <li><a href="programs.html">Mentorship Development</a></li>
+                    <li><a href="programs.html">Marketplace Readiness</a></li>
+                    <li><a href="programs.html">Community Impact</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Contact Info</h4>
+                <p><i class="fas fa-envelope"></i> info@hopevalleyscholars.org</p>
+                <p><i class="fas fa-phone"></i> <a href="tel:+13028986006"
+                        style="color: inherit; text-decoration: none;">+1 (302) 898-6006</a></p>
+                <p style="display: none;"><i class="fas fa-map-marker-alt"></i> <a href="contact.html#map-section"
+                        style="color: inherit; text-decoration: none;">Queens Park Apartments, Nairobi</a></p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>Hope Valley Scholars Inc || © 2026<br>
+                <i>Planting seeds of hope, cultivating leaders for tomorrow.</i>
+            </p>
+        </div>
+    </footer>
+
+    <!-- Board Member Modals -->
+    <div class="modal-overlay" id="modal-joan">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal('modal-joan')">&times;</button>
+            <div class="modal-header">
+                <img src="IMAGES/Dr. Joan Githua.jpeg" alt="Dr. Joan Githua">
+                <h2>Dr. Joan Githua</h2>
+                <span class="modal-title">Chair & Founder</span>
+            </div>
+            <div class="modal-body">
+                <p>Dr. Joan Githua is the Founder and Board Chair of Hope Valley Scholars Inc., bringing visionary
+                    leadership, strong financial expertise, and a deep commitment to education‑driven and value-centered
+                    community transformation. As Founder, she established Hope Valley Scholars with a clear mission to
+                    expand access to opportunities, strengthen families, and empower young people through education,
+                    mentorship, and holistic support. In her role as Chair, she provides strategic direction,
+                    strengthens board governance, and ensures the organization remains mission‑aligned, financially
+                    sound, and positioned for long term impact.</p>
+                <p>Joan is a seasoned financial professional with more than fifteen years of experience in financial
+                    analysis and operational effectiveness. Her professional background includes experience with
+                    MetLife, JPMorgan Chase, and Vanguard. In her current role as a Senior Financial Analyst, she
+                    supports enterprise‑level financial controls, audit readiness, process improvement, and regulatory
+                    compliance. Her professional experience has equipped her with strong expertise in financial
+                    stewardship, accountability, and organizational sustainability.</p>
+                <p>She holds a Bachelor of Arts in Anthropology, an MBA in Finance, and a Doctorate in Kingdom Theology.
+                    Her academic background reflects a unique integration of financial leadership, social understanding,
+                    and faith‑informed values, shaping her approach to ethical leadership, servant governance, and
+                    community impact.</p>
+                <h3>Why I Founded Hope Valley Scholars</h3>
+                <p>Joan founded Hope Valley Scholars Inc. out of a deep sense of faith, calling, and commitment to
+                    service, driven by her firsthand experience with how financial disadvantages can limit access to
+                    education and opportunity. Believing that God‑given potential should never be constrained by lack of
+                    resources, she established the organization to remove barriers, restore hope, and create pathways
+                    where education, mentorship, and purpose intersect. Her vision is impact‑driven, ensuring that
+                    students are not only supported academically, but also seen, guided, and empowered to break cycles
+                    of limitation and step fully into their calling.</p>
+                <p>Through Hope Valley Scholars, Joan remains committed to stewarding resources with integrity and
+                    advancing a mission where education becomes a tool for transformation, dignity is restored, and
+                    future generations are equipped to thrive and lead with purpose.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="modal-john">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal('modal-john')">&times;</button>
+            <div class="modal-header">
+                <img src="IMAGES/John Kathuri.jpeg" alt="Dr. John Kathuri">
+                <h2>Dr. John Kathuri</h2>
+                <span class="modal-title">Vice Chair</span>
+            </div>
+            <div class="modal-body">
+                <p>As Vice Chair of the Board, John brings thoughtful leadership, strategic insight, and a deep
+                    commitment to advancing the organization’s mission of empowering youth through education,
+                    mentorship, and community engagement. In this role, he partners closely with the Board Chair and
+                    fellow board members to strengthen governance, support long‑term strategy, and uphold accountability
+                    in service to students, families, donors, and community stakeholders.</p>
+                <p>John is an educator, nonprofit leader, ordained pastor, and community advocate with a strong passion
+                    for developing the next generation of leaders. He holds a Master’s degree in Organizational
+                    Leadership and a Bachelor’s degree in Education, and is currently pursuing a Ph.D. in Organizational
+                    Leadership at Eastern University, USA. His academic training is complemented by extensive, hands‑on
+                    experience across education, faith‑based service, and nonprofit leadership.</p>
+                <p>He is the co‑founder of Youth Promise Kenya, an after‑school program and summer camp model focused on
+                    mentorship, educational support, and digital literacy, designed to equip young people with practical
+                    skills and pathways to opportunity. Throughout his career, John has initiated and led youth‑focused
+                    programs that have served thousands of young people, and he has contributed to nonprofit governance
+                    and leadership development in both Kenya and the United States, bringing a global perspective and a
+                    collaborative, mission‑driven approach to board leadership.</p>
+                <h3>Why He Serves</h3>
+                <p>John serves on the Board because he believes that education, mentorship, and purpose‑driven
+                    leadership are powerful tools for transforming lives and communities. His work with young people has
+                    reinforced his conviction that when organizations lead with integrity, collaboration, and vision,
+                    they can create sustainable opportunities for the next generation. Grounded in values of service,
+                    equity, faith, and community partnership, John is committed to strengthening organizational impact
+                    and helping ensure that every young person has access to the guidance, skills, and pathways needed
+                    to thrive.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="modal-melchizedek">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal('modal-melchizedek')">&times;</button>
+            <div class="modal-header">
+                <img src="IMAGES/Melchizedek Bosire.jpeg" alt="Melchizedek Bosire">
+                <h2>Melchizedek Bosire</h2>
+                <span class="modal-title">Treasurer</span>
+            </div>
+            <div class="modal-body">
+                <p>Melchizedek Bosire serves as Board Treasurer, bringing clinical expertise, compassionate leadership,
+                    and disciplined stewardship to the financial governance of Hope Valley Scholars Inc. He currently
+                    serves at ConexioCare in Delaware, where he provides psychiatric care to individuals facing a wide
+                    range of mental health challenges. Guided by a heart of compassion and deep spiritual discernment,
+                    Melchizedek approaches everyone with respect, empathy, and a firm belief in their inherent worth and
+                    capacity for transformation.</p>
+                <p>A Psychiatric Mental Health Nurse Practitioner, Melchizedek specializes in treating anxiety
+                    disorders, mood disorders, schizophrenia, bipolar disorder, and substance use disorders. His work
+                    integrates clinical excellence with holistic, person‑centered care, recognizing that true healing
+                    goes beyond medication to include restoring hope, renewing the mind, and supporting individuals as
+                    they rediscover purpose.</p>
+                <p>Melchizedek’s professional journey began with humble roots and a strong desire to serve others. He
+                    holds a Master of Science in Nursing (Psychiatric Mental Health Nurse Practitioner) from Walden
+                    University, a Bachelor of Science in Nursing from the University of Texas at Arlington, and an
+                    Associate Degree in Nursing from Delaware Technical Community College. Each milestone reflects
+                    perseverance, faith, and a calling to make a meaningful difference.</p>
+                <p>Throughout his career, he has held leadership roles including Interim Director of Nursing and Nursing
+                    Supervisor, where he led teams, mentored staff, and ensured high‑quality care for vulnerable
+                    populations. In his role as Treasurer, he brings the same integrity, accountability, and thoughtful
+                    oversight to stewarding the organization’s resources in alignment with its mission.</p>
+                <h3>Why He Serves</h3>
+                <p>Melchizedek serves on the Board because he believes that restoring hope, supporting mental
+                    well‑being, and investing in people are essential to building healthy, resilient communities. His
+                    lifelong commitment to caring for individuals facing significant challenges has shaped his
+                    conviction that compassionate leadership and responsible stewardship can create lasting impact.</p>
+                <p>As Board Treasurer, he ensures that Hope Valley Scholars Inc. remains financially strong and
+                    mission‑focused.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="modal-caroline">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal('modal-caroline')">&times;</button>
+            <div class="modal-header">
+                <img src="IMAGES/Caroline Tumuti.jpeg" alt="Caroline Tumuti">
+                <h2>Caroline Tumuti</h2>
+                <span class="modal-title">Secretary</span>
+            </div>
+            <div class="modal-body">
+                <p>As Secretary of the Board for Hope Valley Scholars, Caroline plays an integral role in advancing the
+                    organization’s mission to expand educational access, mentorship, and long‑term student success. She
+                    supports strong nonprofit governance by maintaining accurate board records, documenting meeting
+                    minutes, and ensuring clear, consistent communication that fosters accountability and trust among
+                    board members, donors, families, and community partners.</p>
+                <p>Caroline holds a Bachelor of Science (BSc) in Psychology and is certified as an International
+                    Behavior Therapist (IBT) through the International Behavior Analysis Organization (IBAO). She
+                    currently works as a Behavior Therapist, where she supports neurodivergent children and youth
+                    through individualized learning and skill‑building plans that promote academic readiness,
+                    communication, independence, and social development. She is also currently pursuing a postgraduate
+                    diploma in Early Childhood Education, further deepening her commitment to early learning,
+                    developmentally appropriate practice, and foundational educational equity.</p>
+                <p>Her background in evidence‑based education support, youth development, and person‑centered mentorship
+                    closely aligns with Hope Valley Scholars’ commitment to nurturing students
+                    holistically—academically, socially, and emotionally. Guided by a strong belief that every scholar
+                    deserves to be seen, supported, and empowered, Caroline brings a compassionate, equity‑driven
+                    perspective to the board. Through her service, she is dedicated to strengthening Hope Valley
+                    Scholars’ impact, fostering meaningful community partnerships, and helping ensure that every scholar
+                    has the guidance, resources, and encouragement needed to reach their full potential.</p>
+                <h3>Why She Serves</h3>
+                <p>She serves on the Board of Hope Valley Scholars because she believes that education, mentorship, and
+                    compassionate guidance can transform young people’s lives. Guided by her experience working with
+                    children, youth, and families, she is deeply committed to equity, inclusion, and individualized
+                    support, ensuring every scholar is seen, supported, and empowered. At the heart of her service is a
+                    belief that every scholar deserves to be seen, supported, and empowered not only academically, but
+                    holistically. She is honored to contribute to an organization dedicated to uplifting youth and
+                    fostering long‑term success through education and mentorship.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="modal-sammy">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal('modal-sammy')">&times;</button>
+            <div class="modal-header">
+                <img src="IMAGES/Sammy Wambugu.jpeg" alt="Sammy Wambugu">
+                <h2>Sammy Wambugu</h2>
+                <span class="modal-title">Director at Large</span>
+            </div>
+            <div class="modal-body">
+                <p>Sammy Njayakio Wambugu is a transformational leader, counselling psychologist, and governance
+                    strategist with more than 20 years of experience in policy development, psychosocial leadership,
+                    youth empowerment, and institutional strengthening across Kenya and the East African region. As
+                    Strategic Board Chair, he provides strategic oversight, strengthens governance practices, and
+                    partners closely with fellow board members and organizational leadership to advance the mission of
+                    Hope Valley Scholars Inc. with clarity, accountability, and long‑term vision.</p>
+                <p>Sammy holds a Bachelor of Arts in Anthropology, a Master of Arts in Counselling Psychology, and an
+                    MBA in International Business, and is currently pursuing a PhD in Counselling Psychology. His
+                    academic and professional background reflects a deep commitment to understanding human behavior,
+                    mental well‑being, and ethical, people‑centered leadership within complex organizational
+                    environments.</p>
+                <p>He is the Founder of SUM Talks, a platform focused on mental health awareness, mentorship, and
+                    leadership development for young people. Through SUM Talks, he has led impactful programs,
+                    trainings, and community engagements that promote psychosocial resilience, personal growth, and
+                    purpose‑driven leadership among youth and emerging leaders.</p>
+                <h3>Why He Serves</h3>
+                <p>Sammy serves on the Board because he believes that strong leadership, mental well‑being, and
+                    intentional mentorship are essential to unlocking the potential of young people and building
+                    resilient communities. His lifelong work with youth has shaped his conviction that organizations
+                    thrive when they lead with integrity, clarity of purpose, and compassion. As Strategic Board Chair,
+                    he is driven by a commitment to helping organizations operate at their highest level strategically,
+                    ethically, and sustainably so that young people have access to the support, guidance, and leadership
+                    development they need to thrive and lead with purpose.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        window.addEventListener('scroll', function () {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) navbar.classList.add('scrolled');
+            else navbar.classList.remove('scrolled');
+        });
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('nav-links');
+        hamburger.addEventListener('click', () => navLinks.classList.toggle('active'));
+
+        function openModal(id) {
+            document.getElementById(id).classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal(id) {
+            document.getElementById(id).classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        // Close modal when clicking outside
+        document.querySelectorAll('.modal-overlay').forEach(overlay => {
+            overlay.addEventListener('click', function (e) {
+                if (e.target === this) {
+                    this.classList.remove('active');
+                    document.body.style.overflow = '';
+                }
+            });
+        });
+
+        // Close modal with Escape key
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape') {
+                document.querySelectorAll('.modal-overlay.active').forEach(m => {
+                    m.classList.remove('active');
+                    document.body.style.overflow = '';
+                });
+            }
+        });
+    </script>
+</body>
+
+</html>

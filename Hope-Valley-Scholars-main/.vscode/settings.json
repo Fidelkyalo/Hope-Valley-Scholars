@@ -1,0 +1,6 @@
+{
+    "codex-autocommit.active": true,
+    "codex-autocommit.intervalMinutes": 1,
+    "git.postCommitCommand": "push",
+    "git.rememberPostCommitCommand": true
+}
